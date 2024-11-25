@@ -1,2 +1,3 @@
-# Bonz.ai
-Eksamen HTML &amp; CSS individuell - Bonz.ai
+Eksamen i HTML & CSS: "Bonz.ai"
+
+Skapad av: Helene Theodorsen

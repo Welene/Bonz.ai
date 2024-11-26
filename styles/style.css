@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+:root {
+    --color-primary: #3498db;
+    --color-secondary: #888888;
+
+    --gradient-blue: linear-gradient(to right, #007BFF, #00C6FF);
+
+    /* --headings-buttons: font-family: tomorrow */
+}
+
+.index-wrapper {
+    /* background-color: var(--color-secondary); */
+    min-height: 100vh;
+    /* width: 100vw; */
+    width: 100%; 
+    position: relative;
+    overflow: hidden;
+    /* hamburger-menyen skal holde seg relativ til wrapperen på skjermen */
+}
+
+.header-section {
+    background-color:pink;
+}
+
+
+/* ----------------------- HAMBURGER SECTION --------------------------- */
+
+/* HAMBURGER ICON STYLING/POSITION SECTION */
+.header-section__burger {
+    display: none; 
+    /* tar bort check-boksen siden vi ikke trenger Å SE DEN, men hamburgeren må ha den i bakgrunnen for å fungere */
+}
+
+.header-section__burger-btn {
+    width: 1.5rem;
+    aspect-ratio: 1;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+} 
+
+
+/* HAMBURGER CHECKED/ROTATION ANIMATION SECTION */
+.header-section__burger-btn > .header-section__burger-icon,
+.header-section__burger-btn > .header-section__burger-icon::before,
+.header-section__burger-btn > .header-section__burger-icon::after {
+    width: 100%;
+    height: 3px;
+    border-radius: 1rem;
+    background-color: white;
+    position: absolute;
+    transition: all .3s ease-in-out;
+    /* vil animere alt (all), ta 0.3 sekunder og ease både inn og ut */
+}
+
+.header-section__burger-btn > .header-section__burger-icon::before {
+    content: '';
+    top: -8px;
+}
+
+.header-section__burger-btn > .header-section__burger-icon::after {
+    content: '';
+    top: 8px;
+}
+
+.header-section__burger:checked ~ .header-section__burger-btn > .header-section__burger-icon {
+    transform: rotate(45deg); 
+}
+
+.header-section__burger:checked ~ .header-section__burger-btn > .header-section__burger-icon::before {
+    transform: rotate(90deg); 
+    top: 0; 
+}
+
+.header-section__burger:checked ~ .header-section__burger-btn > .header-section__burger-icon::after {
+    transform: rotate(90deg);
+    top: 0; 
+
+}
+
+
+/* NAVIGATION MENU STYLING/ANIMATION SECTION */
+.header-section__navigation {
+    /* max-width: 999px; */
+
+
+    margin-inline: auto;
+    /* tar opp hele skjermen i bredde på liten skjerm */
+    width: 100%;
+    height: 100vh;
+    /* tar opp hele skjermen i lengde på liten skjerm */
+    color: grey;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: white;
+    /* gjør at menyen slider inn og forsvinner osv */
+    transform: translateX(100%);
+    /* nå er den borte, går 100% i en retning og forsvinner ut av skjermen, -100% blir andre veien */
+    transition: transform .5s ease-in-out;
+    /* transition bare på våre transform som er bare menyen slider inn og ut */
+
+}
+
+.header-section__navigation-list {
+    display: flex;
+    flex-direction: column;
+    /* større skjerm, endre bare fra column til row i stedet for i media queries på desktop str*/
+    align-items: flex-end;
+    /* padding: 1rem 2rem 1rem 2rem; */
+}
+
+.header-section__navigation-list-item {
+    display: flex;
+    list-style: none;
+    text-align: right;
+    padding: 1rem 2rem 1rem 2rem;
+    width: 100%;
+    border-top: 2px solid white;
+    width: auto;
+}
+
+.header-section__navigation-list-item:nth-child(6) {
+    border-bottom: 2px solid white;
+}
+
+.header-section__navigation-list-item:active,
+.header-section__navigation-list-item:hover {
+    background-color: #3b86b8;
+    cursor: pointer;
+}
+
+.header-section__burger:checked ~ .header-section__navigation {
+    /* når burgermenyen er checked, så skal nav menyen komme inn på skjermen igjen */
+    transform: translateX(0);
+    /* 0 = utgangsposisjonen, der den var fra begynnelsen  */
+
+}
+
+
+
+
+/* ----------------------- HEADER SECTION --------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 999px) {
+
+    /* MEDIA QUERY --- NAV MENY + BURGER ICON STYLING */
+    .header-section__burger-btn {
+        display: none; 
+    }
+
+    .header-section__navigation {
+        transform: translateX(0);
+        display: flex;
+        width: 100%;
+        height: auto;
+    }
+
+    .header-section__navigation-list {
+        display: flex;
+        flex-direction: row; 
+        justify-content: space-evenly;
+        width: 100%;
+    }
+
+    .header-section__navigation-list-item {
+        font-size: 1rem;
+        border-style: none;
+        padding: 1rem 2rem;
+        text-align: center;
+    }
+
+    .header-section__navigation-list-item:hover {
+        background-color: red;
+    }
+
+    .header-section__navigation-list-item:nth-child(6) {
+        border-style: none;
+    }
+
+
+    /* MEDIA QUERY --- HEADER SECTION STYLING */
+
+}
+

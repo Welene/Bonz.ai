@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 * {
     box-sizing: border-box;
@@ -25,11 +25,32 @@
     position: relative;
     overflow: hidden;
     /* hamburger-menyen skal holde seg relativ til wrapperen på skjermen */
+
+
 }
 
+/* -------------------------HEADER SECTION ----------------------------- */
+
 .header-section {
-    background-color:pink;
+    background-color: var(--color-primary)
+    
 }
+
+.header-section__title, .header-section__sub-title {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+.header-section__sub-title {
+    padding-bottom: 1.5rem;
+}
+
+.header-section__image {
+
+}
+
+
 
 
 /* ----------------------- HAMBURGER SECTION --------------------------- */
@@ -51,6 +72,8 @@
     align-items: center;
     justify-content: center;
 } 
+
+
 
 
 /* HAMBURGER CHECKED/ROTATION ANIMATION SECTION */
@@ -90,6 +113,8 @@
     top: 0; 
 
 }
+
+
 
 
 /* NAVIGATION MENU STYLING/ANIMATION SECTION */
@@ -153,7 +178,8 @@
 
 
 
-/* ----------------------- HEADER SECTION --------------------------- */
+/* ----------------------- NY SECTION --------------------------- */
+
 
 
 

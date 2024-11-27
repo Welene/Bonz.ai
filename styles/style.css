@@ -7,9 +7,23 @@
     padding: 0;
 }
 
+/* 
+INNLEVERING: VÆR SIKKER PÅ AT ALLE SRC PÅ IMG ER RETTE, OM MAN ER I MASTER ELLER MAIN SÅ ER DE ULIKE,
+OG BILDER DUKKER KANSKJE IKKE OPP... BARE ENDRE/TA BORT/LEGG TIL EN EKSTRA PARENT FOLDER ./navn -- ../navn/navn
+
+- SKYGGE RUNDT WRAPPER OG BODY, KONTRAST MELLOM BODY OG WRAPPER
+- LEGGE TIL "ALT" BESKRIVNINGER PÅ ALLE BILDER
+- FORSØKE Å KOMBINERE ALLE BUTTONS PÅ ET SETT
+
+- FÅ MENYEN PÅ MOBIL TIL Å VISES OPPÅ/FRAMFOR ALT CONTENT OG IKKE BAK
+
+- FIKSE DESKTOP MEDIA QUERY PÅ ALLE SIDENE
+- FIKSE FONT-FAMILY VARIABLER? BARE TO... ELLER TRE?
+- JUSTERE FARGER, VELGE PRIMARY OG SECONDARY FARGER PÅ SIDEN + GRADIENT
+*/
 
 :root {
-    --color-primary: #3498db;
+    --color-primary: #3d6d8d;
     --color-secondary: #888888;
 
     --gradient-blue: linear-gradient(to right, #007BFF, #00C6FF);
@@ -21,19 +35,18 @@
     /* background-color: var(--color-secondary); */
     min-height: 100vh;
     /* width: 100vw; */
-    width: 100%; 
+    width: 100%;
     position: relative;
     overflow: hidden;
-    /* hamburger-menyen skal holde seg relativ til wrapperen på skjermen */
-
-
 }
 
 /* -------------------------HEADER SECTION ----------------------------- */
 
 .header-section {
-    background-color: var(--color-primary)
-    
+    background-color: var(--color-primary);
+    position: relative;
+    height: 7.5rem;
+
 }
 
 .header-section__title, .header-section__sub-title {
@@ -44,21 +57,28 @@
 
 .header-section__sub-title {
     padding-bottom: 1.5rem;
+    letter-spacing: .9rem; 
+    transform: translateX(.5rem);
+}
+
+.header-section__title {
+    padding-top: 1.5rem;
 }
 
 .header-section__image {
-
+    max-width: 20%;
+    bottom: 3rem;
+    position: absolute;
+    top: 1.5rem;
+    left: .5rem;
 }
-
-
 
 
 /* ----------------------- HAMBURGER SECTION --------------------------- */
 
 /* HAMBURGER ICON STYLING/POSITION SECTION */
 .header-section__burger {
-    display: none; 
-    /* tar bort check-boksen siden vi ikke trenger Å SE DEN, men hamburgeren må ha den i bakgrunnen for å fungere */
+    display: none;
 }
 
 .header-section__burger-btn {
@@ -71,7 +91,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-} 
+}
 
 
 
@@ -86,7 +106,6 @@
     background-color: white;
     position: absolute;
     transition: all .3s ease-in-out;
-    /* vil animere alt (all), ta 0.3 sekunder og ease både inn og ut */
 }
 
 .header-section__burger-btn > .header-section__burger-icon::before {
@@ -100,44 +119,35 @@
 }
 
 .header-section__burger:checked ~ .header-section__burger-btn > .header-section__burger-icon {
-    transform: rotate(45deg); 
+    transform: rotate(45deg);
 }
 
 .header-section__burger:checked ~ .header-section__burger-btn > .header-section__burger-icon::before {
-    transform: rotate(90deg); 
-    top: 0; 
+    transform: rotate(90deg);
+    top: 0;
 }
 
 .header-section__burger:checked ~ .header-section__burger-btn > .header-section__burger-icon::after {
     transform: rotate(90deg);
-    top: 0; 
+    top: 0;
 
 }
 
 
-
-
 /* NAVIGATION MENU STYLING/ANIMATION SECTION */
 .header-section__navigation {
-    /* max-width: 999px; */
-
-
     margin-inline: auto;
     /* tar opp hele skjermen i bredde på liten skjerm */
     width: 100%;
     height: 100vh;
     /* tar opp hele skjermen i lengde på liten skjerm */
-    color: grey;
+    color: white;
     font-size: 1.5rem;
     font-weight: 600;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: white;
-    /* gjør at menyen slider inn og forsvinner osv */
+    background-color: var(--color-primary);
     transform: translateX(100%);
-    /* nå er den borte, går 100% i en retning og forsvinner ut av skjermen, -100% blir andre veien */
     transition: transform .5s ease-in-out;
-    /* transition bare på våre transform som er bare menyen slider inn og ut */
-
 }
 
 .header-section__navigation-list {
@@ -145,7 +155,6 @@
     flex-direction: column;
     /* større skjerm, endre bare fra column til row i stedet for i media queries på desktop str*/
     align-items: flex-end;
-    /* padding: 1rem 2rem 1rem 2rem; */
 }
 
 .header-section__navigation-list-item {
@@ -154,12 +163,7 @@
     text-align: right;
     padding: 1rem 2rem 1rem 2rem;
     width: 100%;
-    border-top: 2px solid white;
     width: auto;
-}
-
-.header-section__navigation-list-item:nth-child(6) {
-    border-bottom: 2px solid white;
 }
 
 .header-section__navigation-list-item:active,
@@ -171,14 +175,234 @@
 .header-section__burger:checked ~ .header-section__navigation {
     /* når burgermenyen er checked, så skal nav menyen komme inn på skjermen igjen */
     transform: translateX(0);
-    /* 0 = utgangsposisjonen, der den var fra begynnelsen  */
-
 }
 
 
 
 
-/* ----------------------- NY SECTION --------------------------- */
+/* ----------------------- MAIN SECTION PAGE 1 --------------------------- */
+
+.content-section__login-status {
+    display: flex;
+    justify-content: flex-end;
+    margin: 1rem;
+    font-family: roboto;
+}
+
+
+/* ARTICLE NUMBER 1 */
+.intro__booking {
+    background-image: url('../assets/lobby.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 6rem 0rem 6rem 0rem;
+    
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.intro__booking-help-btn {
+    color: fff;
+    background-color: white;
+    padding: .7rem 1.1rem;
+    border-style: none;
+    border-radius: 999rem;
+    font-weight: 1000;
+    font-size: 1rem;
+    color: rgb(70, 70, 70);
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.intro__booking-btn, .intro__booking-btn--bold {
+    padding: 1.5rem 5.5rem;
+    font-family: tomorrow;
+    font-size: 1.5rem;
+    width: 20.7rem;
+    border-style: none;
+    border-radius: .3rem;
+}
+
+.intro__booking-btn--bold {
+    font-weight: 600;
+    padding: 1.5rem 5rem;
+    margin-bottom: 1rem;
+}
+
+
+/* ARTICLE NUMBER TWO */
+.intro__overview {
+    background-image: url('../assets/hotel.jpg');
+    width: 100%;
+    padding: 6rem 0rem 6rem 0rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-top: 2.8rem;
+    margin-bottom: 6rem;
+    position: relative;
+}
+
+.intro__overview-btn, .intro__overview-btn--padding {
+    padding: .5rem .5rem;
+    border-style: none;
+    width: 8rem;
+    border-radius: .3rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+    font-family: tomorrow;
+    top: 1rem;
+}
+
+.intro__overview-btn-container {
+    margin-bottom: 2rem;
+    width: 20.1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.intro_overview-q-background {
+    padding: 1rem 1.5rem; 
+    border-radius: 0.3rem; 
+    background-color: white;
+    opacity: .7;
+}
+
+.intro__overview-quote-content {
+    text-align: center; 
+    line-height: 1.5; 
+    /* legg till line hight på andre p tekster senere på de andre sidene, lettere å lese */
+    font-size: 1.4rem; 
+    font-family: roboto;
+    font-style: italic;
+}
+
+button {
+    /* endre til felles button-BEM etterpå */
+    background-color: white;
+    opacity: .8;
+}
+
+/* ------------------------------- REVIEWS SECTION PAGE 1 ---------------------------------- */
+
+.intro__overview__quote {
+    font-family: tomorrow;
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--color-secondary);
+    margin-bottom: 3rem;
+}
+
+.content-section__reviews {
+    display: flex;
+    flex-direction: column;
+}
+
+.content-section__comment {
+    margin-bottom: 1rem;
+    width: 14rem;
+    padding: 1rem;
+    color: white;
+    font-family: roboto;
+    font-style: italic;
+    font-size: 1rem;
+    border-radius: .3rem;
+    margin: 1rem;
+    background-color: var(--color-primary);
+}
+
+.content-section__comment:nth-child(3) {
+    align-self: flex-end;
+}
+
+
+.content-section__comment:nth-child(5) {
+    align-self: flex-end;
+}
+
+.content-section__more-com-btn {
+    border-radius: .3rem;
+    color: black;
+    font-style: italic;
+    font-family: roboto;
+    font-size: .9rem;
+    background-color: var(--color-secondary);
+    border-style: none;
+    width: 7.5rem;
+    padding: .5rem 1rem;
+    align-self: center;
+    margin: 3rem 0rem;
+}
+
+/* ----------------------------------- FOOTER SECTION ----------------------------------- */
+
+.footer-section {
+    width: 100%;
+    height: auto;
+    list-style: none;
+    font-family: roboto;
+    color: white;
+    font-weight: 600;
+    padding-top: 2rem;
+    background-color: var(--color-primary);
+}
+
+.footer-section__navigation-bottom {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 40px);
+
+}
+
+.footer-section__navigation-bottom-list-items:nth-child(1) {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.footer-section__navigation-bottom-list-items:nth-child(2) {
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.footer-section__navigation-bottom-list-items:nth-child(3) {
+    grid-area: 1 / 3 / 2 / 4;
+}
+
+.footer-section__navigation-bottom-list-items:nth-child(4) {
+    grid-area: 2 / 1 / 3 / 2;
+}
+
+.footer-section__navigation-bottom-list-items:nth-child(5) {
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+.footer-section__navigation-bottom-list-items:nth-child(6) {
+    grid-area: 2 / 3 / 3/ 4;
+}
+
+.footer-section__navigation-bottom-list-items {
+    align-self: center;
+    text-align: center;
+}
+
+.footer-section__navigation-bottom-copyright {
+    font-weight: 100;
+    text-align: center;
+    padding-bottom: 1rem;
+    font-style: italic;
+    padding-top: 3rem;
+    font-size: .9rem;
+}
 
 
 
@@ -186,6 +410,71 @@
 
 
 
+
+
+
+
+
+
+/* ----------------------------------------------------------------------------SERVICES-PAGE (SIDE 2)-------------------------------------------------------------------- */
+
+.content-section__gallery-title {
+    font-family: tomorrow;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.content-section__gallery {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr) ;
+    grid-template-rows: repeat(8, auto);
+    text-align: center;
+
+
+}
+/* grid (.section) med navn gallery */
+
+.content-section__gal-con-service-btn {
+    border-style: none;
+    background-color: white;
+    opacity: .7;
+    color: black;
+    padding: 1.2rem 2.5rem;
+    border-radius: .3rem;
+    font-family: tomorrow;
+    font-weight: 600;
+    font-size: 1rem;
+    width: 10rem;
+    position: absolute;
+    transform: translate(-16.8rem, 6.5rem);
+}
+
+.content-section__gal-con-img {
+    width: 23rem;
+    position: relative;
+}
+
+.content-section__gal-con-img:nth-child(1) {
+    margin-top: 2rem;
+}
+
+.content-section__gal-con-description {
+    width: 23rem;
+    justify-self: center;
+    margin: 1rem 0rem 4rem 0rem;
+    letter-spacing: .1rem;
+    line-height: 1.4rem;
+    font-family: roboto;
+    font-style: italic;
+}
+
+
+
+
+
+
+
+/* ----------------------------------------------ROOMS SECTION, PAGE 3 --------------------------------------------------- */
 
 
 
@@ -199,7 +488,7 @@
 
     /* MEDIA QUERY --- NAV MENY + BURGER ICON STYLING */
     .header-section__burger-btn {
-        display: none; 
+        display: none;
     }
 
     .header-section__navigation {
@@ -211,7 +500,7 @@
 
     .header-section__navigation-list {
         display: flex;
-        flex-direction: row; 
+        flex-direction: row;
         justify-content: space-evenly;
         width: 100%;
     }
@@ -231,6 +520,9 @@
         border-style: none;
     }
 
+    .content-section__login-status {
+        margin-top: 4rem;
+    }
 
     /* MEDIA QUERY --- HEADER SECTION STYLING */
 

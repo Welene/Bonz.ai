@@ -11,9 +11,9 @@
 <body>
     <div class="index-wrapper">
 
-
+        <!-- will be a part of every page -->
         <header class="header-section">
-            <img src="" alt="" class="header-section__image">
+            <img src="./assets/Bot1-half.png" alt="" class="header-section__image">
             <h1 class="header-section__title">Bonz.ai</h1>
             <h2 class="header-section__sub-title">Hotel</h2>
             <input type="checkbox" class="header-section__burger" id="header-section__burger">
@@ -36,15 +36,88 @@
 
 
         <main class="content-section">
+            <p class="content-section__login-status">Logged in</p>
+            <!-- Logged in/logged out will be a part of every page -->
 
+            <!-- will not be a part of every page -->
+            
+            <!-- PICTURE-BOOKING-SECTION -->
+            <section class="content-section__intro">
+                
+                <article class="intro__booking">
+                    <!-- legg inn bilde i hver artikkel som background-image -->
+                    <aside class="intro__booking-help"> 
+                        <button class="intro__booking-help-btn">?</button>
+                    </aside>
+                    <button class="intro__booking-btn--bold">Book with AI</button>
+                    <button class="intro__booking-btn">Book myself</button>
+                </article>
+
+
+                <article class="intro__overview">
+                    <!-- background image her også -->
+                    <figure class="intro__overview-btn-container">
+                        <button class="intro__overview-btn--padding">Rooms</button>
+                        <button class="intro__overview-btn">Services</button>
+                    </figure>
+                    <div class="intro_overview-q-background">
+                    <!-- her går det vel bra å ha en div right -->
+                        <blockquote class="intro__overview-quote">
+                            <p class="intro__overview-quote-content">Hotels made easy with Bonz <br> - a stay tailored just for you</p>
+                        </blockquote>
+                    </div>
+                </article>
+
+            </section>
+
+
+            <!-- COMMENTS/REVIEWS SECTION -->
+
+            <section class="content-section__reviews">
+                <!-- section er flex -->
+                <blockquote class="content-section__quote-heading">
+                    <h3 class="intro__overview__quote">We love our customers <br> - and they love us </h3>
+                </blockquote>
+                <article class="content-section__comment">
+                    <p class="content-section__user-comment">“This is the best hotel I have ever been to, no joke!”</p>
+                    <p class="content-section__user-name"></p>
+                </article>
+                <article class="content-section__comment">
+                    <p class="content-section__user-comment">“This hotel has a rad atmosphere +++ they've got puppy yoga!??”</p>
+                    <p class="content-section__user-name"></p>
+                </article>
+                <article class="content-section__comment">
+                    <p class="content-section__user-comment">“Guuuurl this Bonz-thingy slays ngl, mad lit app, fr-fr FRRRR!”</p>
+                    <p class="content-section__user-name"></p>
+                </article>
+                <article class="content-section__comment">
+                    <p class="content-section__user-comment">“SplishSPLASH LOVE poools my dads told me I could SWIM ALLL DAY ((noway??) and leeve dis revuw too the hottel okke thnks byeeEE”</p>
+                    <p class="content-section__user-name"></p>
+                </article>
+                <article class="content-section__comment">
+                    <p class="content-section__user-comment">“Pet friendly... say no more! <3” </p>
+                    <p class="content-section__user-name"></p>
+                </article>
+                <button class="content-section__more-com-btn">Show more...</button>
+
+
+            </section>
         </main>
 
 
-        
 
 
+        <!-- will be a part of every page -->
         <footer class="footer-section">
-
+            <nav class="footer-section__navigation-bottom">
+                <li class="footer-section__navigation-bottom-list-items">About us</li>
+                <li class="footer-section__navigation-bottom-list-items">Contact</li>
+                <li class="footer-section__navigation-bottom-list-items">Address</li>
+                <li class="footer-section__navigation-bottom-list-items">Feedback</li>
+                <li class="footer-section__navigation-bottom-list-items">Help</li>
+                <li class="footer-section__navigation-bottom-list-items">Socials</li>
+            </nav>
+            <p class="footer-section__navigation-bottom-copyright">© Copyright by Helene Theodorsen AB</p>
         </footer>
     </div>
 </body>

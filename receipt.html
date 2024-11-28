@@ -39,6 +39,70 @@
             <p class="content-section__login-status">Logged in</p>
             <!-- Logged in/logged out will be a part of every page -->
 
+            <section class="content-section__AI-search">
+                <h2 class="content-section__gallery-title">Book with Bonz</h2>
+                    <form class="content-section__AI-search-content">
+                        <h3 class="content-section__AI-search-sub-title">Room preferences:</h3>
+
+                        <textarea id="your-order-request" class="content-section__AI-search-input" placeholder="Example: 'I want a room on the top floor, 1 queen sized bed, 2 guests, from the 25 nov - 6 des. I have a dog too, we want breakfast too'" rows="8" cols="45"></textarea>
+                        <label for="your-order-request" class="sr-only">Your room preferences:</label>
+
+                        <button aria-label="Edit order request for the AI" class="content-section__AI-search-edit-btn">Edit</button>
+                        <img src="./assets/bot2-half.png" alt="" class="content-section__AI-search-logo">
+
+                        <div class="content-section__AI-search-output-container">
+                            <p class="content-section__AI-search-output-container-result">Hmm.. How about this?</p>
+                        </div>
+                    </form>
+            </section>
+
+            <section class="content-section__booking">
+                <article class="content-section__booking-result">
+                    <div class="content-section__booking-result-image-container">
+                        <!-- Bilde-artikkel fra en annen side, en annen blokk, en annen klasse, for samme styling -->
+                        <img src="./assets/pinky.jpg" alt="" class="content-section__gal-con-img">
+                        <button aria-label="Read more about room details" class="content-section__gal-con-service-btn">Pinky</button>
+                    </div>
+                    <h2 class="content-section__gallery-title">Booking Details</h2>
+
+                    <dl class="content-section__booking-order-details">
+                        <dt class="content-section__booking-term">Room:</dt>
+                        <dd class="content-section__booking-value">Pinky</dd>
+            
+                        <dt class="content-section__booking-term">Name:</dt>
+                        <dd class="content-section__booking-value">Göran Ankerstrand</dd>
+            
+                        <dt class="content-section__booking-term">Guests:</dt>
+                        <dd class="content-section__booking-value">2 adults</dd>
+            
+                        <dt class="content-section__booking-term">Date:</dt>
+                        <dd class="content-section__booking-value">25. Nov - 6. Dec</dd>
+            
+                        <dt class="content-section__booking-term">Animals:</dt>
+                        <dd class="content-section__booking-value">
+                            <!-- Label for the 'Yes' option -->
+                            <label for="animal-yes" class="content-section__booking-checkbox-label">
+                                <input type="checkbox" id="animal-yes" checked aria-checked="true" class="content-section__booking-checkbox"> Yes
+                            </label>
+                            <!-- Label for the 'No' option -->
+                            <label for="animal-no" class="content-section__booking-checkbox-label">
+                                <input type="checkbox" id="animal-no" aria-checked="false" class="content-section__booking-checkbox"> No
+                            </label>
+                        </dd>
+            
+                        <dt class="content-section__booking-term">If yes specify what kind:</dt>
+                        <dd class="content-section__booking-value">
+                            <input type="text" placeholder="Dog" id="animal-type" class="content-section__booking-input">
+                        </dd>
+            
+                        <dt class="content-section__booking-term">Breakfast:</dt>
+                        <dd class="content-section__booking-value">Yes</dd>
+                    </dl>
+                    <!-- ADD CLASSES TO "dt" and "dd" and "dl" og alle buttons og labels OSV... -->
+
+                    <button aria-label="Edit or adjust details manually for your booking">Edit details</button>
+                </article>
+            </section>
             
         </main>
 

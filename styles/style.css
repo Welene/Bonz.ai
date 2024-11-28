@@ -18,7 +18,6 @@ OG BILDER DUKKER KANSKJE IKKE OPP... BARE ENDRE/TA BORT/LEGG TIL EN EKSTRA PAREN
 - FÅ MENYEN PÅ MOBIL TIL Å VISES OPPÅ/FRAMFOR ALT CONTENT OG IKKE BAK
 
 - FIKSE DESKTOP MEDIA QUERY PÅ ALLE SIDENE
-- FIKSE FONT-FAMILY VARIABLER? BARE TO... ELLER TRE?
 - JUSTERE FARGER, VELGE PRIMARY OG SECONDARY FARGER PÅ SIDEN + GRADIENT
 
 OG HUSK Å LEGGE TIL SISTE RECEIPT SIA FØR EG GLEMME DET OGSÅ OG LEVERE INN ALT
@@ -29,6 +28,8 @@ OG ALT TEKST PÅ ALLE BILDER PÅ ALLE SIDER
 KANSKJE EN BESKRIVELSE FOR TING SOM IKKE HAR EN BESKRIVELSE? MED ARIA LABELS ELNS? OM DET TRENGST. F.EKS PÅ KNAPPER? MED HOTELLROMNAVN ELLERNOE IDK
 
 + SHADOWS PÅ BUTTONS, HEADERS, TXT-CONTAINERS, IMG
+
+-ENDRE NAVN PÅ NOEN KLASSER, TIL MINDRE SPESIFIKT, MER ÅPENT OG GENERELT
 */
 
 :root {
@@ -329,10 +330,17 @@ button {
     color: white;
     font-family: roboto;
     font-style: italic;
+    font-weight: 400;
     font-size: 1rem;
     border-radius: .3rem;
     margin: 1rem;
     background: var(--gradient-blue);
+}
+
+.content-section__user-name {
+    font-family: roboto;
+    font-weight: 200;
+    text-align: end;
 }
 
 .content-section__comment:nth-child(3) {
@@ -498,9 +506,70 @@ button {
 
 
 
-/* ----------------------------------------------ROOMS SECTION, PAGE 3 --------------------------------------------------- */
+/* ----------------------------------------------RECEIPT SECTION, PAGE 4--------------------------------------------------- */
+/* 
+--- FINN UT HVORFOR DE IKKE VIL BLI SENTRERT, MEN ROW OG COLUMN FUNKER
+--- KOMBINERE DEM FOR MER KOMPAKT CSS?
+*/
 
 
+.sr-only {
+    visibility: hidden; 
+}
+
+/* SEARCH WITH AI SECTION / 1 */
+
+.content-section__AI-search {
+    display: flex;
+    flex-direction: column;    
+}
+
+
+.content-section__AI-search-sub-title {
+    font-family: tomorrow;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.content-section__AI-search-logo {
+    max-width: 20%;
+}
+
+.content-section__AI-search-output-container {
+    max-width: 16rem;
+    padding: 1rem 1.5rem; 
+    border-radius: 0.3rem; 
+    background-color: white;
+    border: 1px solid black;
+    opacity: .7;
+}
+
+.content-section__AI-search-output-container-result {
+    text-align: center; 
+    line-height: 1.5; 
+    font-size: 1.4rem; 
+    font-family: roboto;
+    font-style: italic;
+}
+
+/* BOOKING DETAILS SECTION / 2 */
+
+.content-section__booking {
+    display: flex;
+    flex-direction: column;
+}
+
+.content-section__booking-term, .content-section__booking-value {
+    font-family: roboto;
+    font-weight: 600;
+    margin-left: 2rem;
+
+}
+
+.content-section__booking-value {
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
 
 
 

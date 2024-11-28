@@ -50,7 +50,7 @@ KANSKJE EN BESKRIVELSE FOR TING SOM IKKE HAR EN BESKRIVELSE? MED ARIA LABELS ELN
     overflow: hidden;
 }
 
-/* -------------------------HEADER SECTION ----------------------------- */
+/* ---------------------------------------------------------------------------- HEADER SECTION -- ALL PAGES --------------------------------------------------------------------- */
 
 .header-section {
     position: relative;
@@ -87,7 +87,7 @@ KANSKJE EN BESKRIVELSE FOR TING SOM IKKE HAR EN BESKRIVELSE? MED ARIA LABELS ELN
 }
 
 
-/* ----------------------- HAMBURGER SECTION --------------------------- */
+/* ----------------------------------------------------------------------- HAMBURGER SECTION -- ALL PAGES ------------------------------------------------------------------------ */
 
 /* HAMBURGER ICON STYLING/POSITION SECTION */
 .header-section__burger {
@@ -105,8 +105,6 @@ KANSKJE EN BESKRIVELSE FOR TING SOM IKKE HAR EN BESKRIVELSE? MED ARIA LABELS ELN
     align-items: center;
     justify-content: center;
 }
-
-
 
 
 /* HAMBURGER CHECKED/ROTATION ANIMATION SECTION */
@@ -146,7 +144,6 @@ KANSKJE EN BESKRIVELSE FOR TING SOM IKKE HAR EN BESKRIVELSE? MED ARIA LABELS ELN
 
 }
 
-
 /* NAVIGATION MENU STYLING/ANIMATION SECTION */
 .header-section__navigation {
     margin-inline: auto;
@@ -173,11 +170,12 @@ KANSKJE EN BESKRIVELSE FOR TING SOM IKKE HAR EN BESKRIVELSE? MED ARIA LABELS ELN
 
 .header-section__navigation-list-item {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     list-style: none;
     padding: 1rem 2rem;
-    min-width: 100%;
+    /* min-width: 100%; */
     width: auto;
+    
 }
 
 .header-section__navigation-list-item:active,
@@ -193,9 +191,7 @@ KANSKJE EN BESKRIVELSE FOR TING SOM IKKE HAR EN BESKRIVELSE? MED ARIA LABELS ELN
 }
 
 
-
-
-/* ----------------------- MAIN SECTION PAGE 1 --------------------------- */
+/* --------------------------------------------------------------------------- MAIN SECTION -- PAGE 1 ---------------------------------------------------------------------------- */
 
 .content-section__login-status {
     display: flex;
@@ -306,7 +302,6 @@ KANSKJE EN BESKRIVELSE FOR TING SOM IKKE HAR EN BESKRIVELSE? MED ARIA LABELS ELN
 button {
     /* endre til felles button-BEM etterpå */
     background-color: white;
-
     opacity: .8;
 }
 
@@ -315,7 +310,7 @@ button {
     opacity: 1;
 /* ENDRE NAVN, DEN HETER SERVICE-BTN PÅ BÅDE SERVICE & ROOMS... */
 }
-/* ------------------------------- REVIEWS SECTION PAGE 1 ---------------------------------- */
+/* ----------------------------------------------------------------------- REVIEWS SECTION -- PAGE 1 ----------------------------------------------------------------------------- */
 
 .intro__overview__quote {
     font-family: tomorrow;
@@ -374,7 +369,7 @@ button {
     margin: 3rem 0rem 6rem 0rem;
 }
 
-/* ----------------------------------- FOOTER SECTION ----------------------------------- */
+/* ----------------------------------------------------------------------- FOOTER SECTION -- ALL PAGES -------------------------------------------------------------------------- */
 
 .footer-section {
     width: 100%;
@@ -392,7 +387,6 @@ button {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 40px);
-
 }
 
 .footer-section__navigation-bottom-list-items:nth-child(1) {
@@ -433,19 +427,7 @@ button {
     font-size: .9rem;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-/* ----------------------------------------------------------------------------SERVICES-PAGE (SIDE 2)-------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------ SERVICES/ROOMS PAGE -- PAGE 2 & 3 -------------------------------------------------------------------- */
 
 .content-section__gallery-title {
     font-family: tomorrow;
@@ -505,15 +487,10 @@ button {
     padding: 1rem 2rem;
     color: white;
     background: var(--gradient-blue);
-
 }
 
 
-
-
-
-
-/* ----------------------------------------------RECEIPT SECTION, PAGE 4--------------------------------------------------- */
+/* ------------------------------------------------------------------------------- RECEIPT SECTION -- PAGE 4------------------------------------------------------------------------ */
 /* 
 --- FINN UT HVORFOR DE IKKE VIL BLI SENTRERT, MEN ROW OG COLUMN FUNKER
 --- KOMBINERE DEM FOR MER KOMPAKT CSS?
@@ -521,7 +498,6 @@ button {
 --- BUTTON PÅ BILDET PINKY FORSVINN PÅ 375px, IDK WHY, DET SKJER IKKE PÅ NOEN AV DE ANDRE.
 DVS... HELE SIDE 4 IS ACTING STRANGE. BEGYNNE FRA START?
 */
-
 
 .sr-only {
     visibility: hidden; 
@@ -533,7 +509,6 @@ DVS... HELE SIDE 4 IS ACTING STRANGE. BEGYNNE FRA START?
     display: flex;
     flex-direction: column;    
 }
-
 
 .content-section__AI-search-sub-title {
     font-family: tomorrow;
@@ -573,7 +548,6 @@ DVS... HELE SIDE 4 IS ACTING STRANGE. BEGYNNE FRA START?
     font-family: roboto;
     font-weight: 600;
     margin-left: 2rem;
-
 }
 
 .content-section__booking-value {
@@ -581,11 +555,7 @@ DVS... HELE SIDE 4 IS ACTING STRANGE. BEGYNNE FRA START?
     font-weight: 300;
 }
 
-
-
-
-
-
+/* -------------------------------------------------------------------------------- MEDIA QUERY SECTION ------------------------------------------------------------------------- */
 
 @media screen and (min-width: 999px) {
 
@@ -606,7 +576,7 @@ DVS... HELE SIDE 4 IS ACTING STRANGE. BEGYNNE FRA START?
     .header-section__navigation-list {
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: space-between;
         width: 100%;
     }
 
@@ -618,7 +588,9 @@ DVS... HELE SIDE 4 IS ACTING STRANGE. BEGYNNE FRA START?
     }
 
     .header-section__navigation-list-item:hover {
-        background-color: rgb(219, 219, 219);
+        background-color: rgb(55, 165, 192);
+        color: white;
+        border-radius: 0rem 0rem 1rem 1rem;
     }
 
     .header-section__navigation-list-item:nth-child(6) {
@@ -628,8 +600,5 @@ DVS... HELE SIDE 4 IS ACTING STRANGE. BEGYNNE FRA START?
     .content-section__login-status {
         margin-top: 4rem;
     }
-
-    /* MEDIA QUERY --- HEADER SECTION STYLING */
-
 }
 

@@ -11,7 +11,7 @@
 INNLEVERING: VÆR SIKKER PÅ AT ALLE SRC PÅ IMG ER RETTE, OM MAN ER I MASTER ELLER MAIN SÅ ER DE ULIKE,
 OG BILDER DUKKER KANSKJE IKKE OPP... BARE ENDRE/TA BORT/LEGG TIL EN EKSTRA PARENT FOLDER ./navn -- ../navn/navn
 
-- SKYGGE RUNDT WRAPPER OG BODY, KONTRAST MELLOM BODY OG WRAPPER
+- SKYGGE RUNDT WRAPPER OG BODY, KONTRAST MELLOM BODY OG WRAPPER (på desktop)
 - LEGGE TIL "ALT" BESKRIVNINGER PÅ ALLE BILDER
 - FORSØKE Å KOMBINERE ALLE BUTTONS PÅ ET SETT
 
@@ -20,19 +20,28 @@ OG BILDER DUKKER KANSKJE IKKE OPP... BARE ENDRE/TA BORT/LEGG TIL EN EKSTRA PAREN
 - FIKSE DESKTOP MEDIA QUERY PÅ ALLE SIDENE
 - FIKSE FONT-FAMILY VARIABLER? BARE TO... ELLER TRE?
 - JUSTERE FARGER, VELGE PRIMARY OG SECONDARY FARGER PÅ SIDEN + GRADIENT
+
+OG HUSK Å LEGGE TIL SISTE RECEIPT SIA FØR EG GLEMME DET OGSÅ OG LEVERE INN ALT
+
+OG HUSK Å LEGGE TIL A LINK TAGGER INNI ALLE KNAPPER, OG FAKTISK LINKE DEM SOM SKAL LINKES TIL NYE SIDER! MED HOVER EFFEKTER OG CURSOR POINTER, 
+OG ALT TEKST PÅ ALLE BILDER PÅ ALLE SIDER
+
+KANSKJE EN BESKRIVELSE FOR TING SOM IKKE HAR EN BESKRIVELSE? MED ARIA LABELS ELNS? OM DET TRENGST. F.EKS PÅ KNAPPER? MED HOTELLROMNAVN ELLERNOE IDK
+
++ SHADOWS PÅ BUTTONS, HEADERS, TXT-CONTAINERS, IMG
 */
 
 :root {
     --color-primary: #3d6d8d;
-    --color-secondary: #888888;
+    --color-secondary: #7c7c7c;
 
-    --gradient-blue: linear-gradient(to right, #007BFF, #00C6FF);
+    --gradient-blue: linear-gradient(180deg, rgba(24,105,219,1) 0%, rgb(22, 167, 196) 100%);
 
     /* --headings-buttons: font-family: tomorrow */
 }
 
 .index-wrapper {
-    /* background-color: var(--color-secondary); */
+    /* background-color: EN FARGE HER PÅ DESKTOP FOR Å SKILLE MELLOM BODY OG WRAPPER (MAIN CONTENT) */
     min-height: 100vh;
     /* width: 100vw; */
     width: 100%;
@@ -43,10 +52,11 @@ OG BILDER DUKKER KANSKJE IKKE OPP... BARE ENDRE/TA BORT/LEGG TIL EN EKSTRA PAREN
 /* -------------------------HEADER SECTION ----------------------------- */
 
 .header-section {
-    background-color: var(--color-primary);
     position: relative;
     height: 7.5rem;
-
+    background: var(--gradient-blue);
+    display: flex;
+    flex-direction: column;
 }
 
 .header-section__title, .header-section__sub-title {
@@ -69,8 +79,10 @@ OG BILDER DUKKER KANSKJE IKKE OPP... BARE ENDRE/TA BORT/LEGG TIL EN EKSTRA PAREN
     max-width: 20%;
     bottom: 3rem;
     position: absolute;
-    top: 1.5rem;
-    left: .5rem;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 12%;
+    /* får img i header til å ligge i midten hele tiden, 12% fra venstre og 50% fra toppen når man scaler opp og ned */
 }
 
 
@@ -145,9 +157,10 @@ OG BILDER DUKKER KANSKJE IKKE OPP... BARE ENDRE/TA BORT/LEGG TIL EN EKSTRA PAREN
     font-size: 1.5rem;
     font-weight: 600;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: var(--color-primary);
     transform: translateX(100%);
     transition: transform .5s ease-in-out;
+    background-color: rgb(10, 165, 204);
+    /* få den her fargen å matche enden av fargen på gradient i header */
 }
 
 .header-section__navigation-list {
@@ -198,8 +211,7 @@ OG BILDER DUKKER KANSKJE IKKE OPP... BARE ENDRE/TA BORT/LEGG TIL EN EKSTRA PAREN
     align-items: center;
     flex-direction: column;
     width: 100%;
-    padding: 6rem 0rem 6rem 0rem;
-    
+    padding: 6rem 0rem;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -240,7 +252,7 @@ OG BILDER DUKKER KANSKJE IKKE OPP... BARE ENDRE/TA BORT/LEGG TIL EN EKSTRA PAREN
 .intro__overview {
     background-image: url('../assets/hotel.jpg');
     width: 100%;
-    padding: 6rem 0rem 6rem 0rem;
+    padding: 6rem 0rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -311,16 +323,16 @@ button {
 }
 
 .content-section__comment {
-    margin-bottom: 1rem;
-    width: 14rem;
-    padding: 1rem;
+    width: clamp(12rem, 50%, 20rem);
+    /* clamp funker fint for å scale ting opp og ned veldig lett! når man gjør siden større og mindre, se review section */
+    padding: 1.2rem;
     color: white;
     font-family: roboto;
     font-style: italic;
     font-size: 1rem;
     border-radius: .3rem;
     margin: 1rem;
-    background-color: var(--color-primary);
+    background: var(--gradient-blue);
 }
 
 .content-section__comment:nth-child(3) {
@@ -334,7 +346,8 @@ button {
 
 .content-section__more-com-btn {
     border-radius: .3rem;
-    color: black;
+    color: white;
+    font-weight: 600;
     font-style: italic;
     font-family: roboto;
     font-size: .9rem;
@@ -343,7 +356,7 @@ button {
     width: 7.5rem;
     padding: .5rem 1rem;
     align-self: center;
-    margin: 3rem 0rem;
+    margin: 3rem 0rem 6rem 0rem;
 }
 
 /* ----------------------------------- FOOTER SECTION ----------------------------------- */
@@ -356,7 +369,8 @@ button {
     color: white;
     font-weight: 600;
     padding-top: 2rem;
-    background-color: var(--color-primary);
+    background: var(--gradient-blue);
+    margin-top: 4rem;
 }
 
 .footer-section__navigation-bottom {
@@ -422,6 +436,7 @@ button {
     font-family: tomorrow;
     font-weight: 600;
     font-size: 1.5rem;
+    margin: 2rem;
 }
 
 .content-section__gallery {
@@ -429,8 +444,6 @@ button {
     grid-template-columns: repeat(1, 1fr) ;
     grid-template-rows: repeat(8, auto);
     text-align: center;
-
-
 }
 /* grid (.section) med navn gallery */
 
@@ -444,30 +457,41 @@ button {
     font-family: tomorrow;
     font-weight: 600;
     font-size: 1rem;
-    width: 10rem;
+    width: 12rem;
     position: absolute;
-    transform: translate(-16.8rem, 6.5rem);
+    transform: translate(-17.7rem, 8.5rem);
 }
 
 .content-section__gal-con-img {
-    width: 23rem;
+    width: 23.5rem;
     position: relative;
-}
-
-.content-section__gal-con-img:nth-child(1) {
-    margin-top: 2rem;
+    margin-top: 4rem;
 }
 
 .content-section__gal-con-description {
     width: 23rem;
     justify-self: center;
-    margin: 1rem 0rem 4rem 0rem;
+    padding: 0rem .3rem 0rem .3rem;
+    margin: 1rem 0rem;
     letter-spacing: .1rem;
     line-height: 1.4rem;
     font-family: roboto;
     font-style: italic;
+    margin-bottom: 2rem;
 }
 
+/* additional "BOOK" BUTTON ON "rooms.html" */
+.content-section__gal-con-book-btn {
+    border-style: none;
+    border-radius: .3rem;
+    font-weight: 600;
+    font-family: roboto;
+    font-size: .9rem;
+    padding: 1rem 2rem;
+    color: white;
+    background: var(--gradient-blue);
+
+}
 
 
 
@@ -496,6 +520,8 @@ button {
         display: flex;
         width: 100%;
         height: auto;
+        background-color: rgb(255, 255, 255);
+        color: rgb(19, 19, 19);
     }
 
     .header-section__navigation-list {

@@ -34,7 +34,7 @@ KANSKJE EN BESKRIVELSE FOR TING SOM IKKE HAR EN BESKRIVELSE? MED ARIA LABELS ELN
 
 :root {
     --color-primary: #3d6d8d;
-    --color-secondary: #7c7c7c;
+    --color-secondary: #363636;
 
     --gradient-blue: linear-gradient(180deg, rgba(24,105,219,1) 0%, rgb(22, 167, 196) 100%);
 
@@ -374,7 +374,6 @@ button {
 .footer-section {
     width: 100%;
     height: auto;
-    list-style: none;
     font-family: roboto;
     color: white;
     font-weight: 600;
@@ -383,10 +382,11 @@ button {
     margin-top: 4rem;
 }
 
-.footer-section__navigation-bottom {
+.footer-section__navigation-bottom-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 40px);
+    list-style: none;
 }
 
 .footer-section__navigation-bottom-list-items:nth-child(1) {
@@ -434,6 +434,7 @@ button {
     font-weight: 600;
     font-size: 1.5rem;
     margin: 2rem;
+    text-align: center;
 }
 
 .content-section__gallery {
@@ -491,67 +492,86 @@ button {
 
 
 /* ------------------------------------------------------------------------------- RECEIPT SECTION -- PAGE 4------------------------------------------------------------------------ */
-/* 
---- FINN UT HVORFOR DE IKKE VIL BLI SENTRERT, MEN ROW OG COLUMN FUNKER
---- KOMBINERE DEM FOR MER KOMPAKT CSS?
-
---- BUTTON PÅ BILDET PINKY FORSVINN PÅ 375px, IDK WHY, DET SKJER IKKE PÅ NOEN AV DE ANDRE.
-DVS... HELE SIDE 4 IS ACTING STRANGE. BEGYNNE FRA START?
-*/
-
 .sr-only {
     visibility: hidden; 
 }
 
 /* SEARCH WITH AI SECTION / 1 */
 
-.content-section__AI-search {
+.content-section__AI-search, .content-section__AI-search-content  {
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
+    align-items: center;
 }
 
 .content-section__AI-search-sub-title {
     font-family: tomorrow;
     font-weight: 600;
     font-size: 1.2rem;
+    margin: 2rem 0rem;
 }
 
 .content-section__AI-search-logo {
     max-width: 20%;
 }
 
+.content-section__AI-search-input {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    padding: 1.5rem;
+    font-size: 1rem;
+    border-radius: .3rem;
+    border: 1px solid rgb(199, 199, 199);
+}
+
+.content-section__AI-search-edit-btn {
+    font-family: roboto;
+    font-weight: 600;
+    padding: .5rem 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: .3rem;
+    border-style: none;
+    background-color: var(--color-secondary);
+    color: white;
+}
+
 .content-section__AI-search-output-container {
-    max-width: 16rem;
+    max-width: 22rem;
     padding: 1rem 1.5rem; 
     border-radius: 0.3rem; 
     background-color: white;
-    border: 1px solid black;
     opacity: .7;
 }
 
 .content-section__AI-search-output-container-result {
     text-align: center; 
     line-height: 1.5; 
-    font-size: 1.4rem; 
+    font-size: 1.8rem; 
     font-family: roboto;
     font-style: italic;
 }
 
 /* BOOKING DETAILS SECTION / 2 */
 
-.content-section__booking {
+.content-section__booking-result {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .content-section__booking-term, .content-section__booking-value {
     font-family: roboto;
     font-weight: 600;
-    margin-left: 2rem;
+}
+
+.content-section__booking-term {
+    margin-bottom: .5rem;
 }
 
 .content-section__booking-value {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     font-weight: 300;
 }
 
@@ -600,5 +620,21 @@ DVS... HELE SIDE 4 IS ACTING STRANGE. BEGYNNE FRA START?
     .content-section__login-status {
         margin-top: 4rem;
     }
+
+    /* SERVICES PAGE / GRID GALLERY SECTION */
+
+    .content-section__gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr) ;
+        grid-template-rows: auto;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .content-section__gallery-title {
+        grid-column: span 3;
+    }
 }
 
+
+ 

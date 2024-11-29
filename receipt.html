@@ -44,7 +44,7 @@
                     <form class="content-section__AI-search-content">
                         <h3 class="content-section__AI-search-sub-title">Room preferences:</h3>
 
-                        <textarea id="your-order-request" class="content-section__AI-search-input" placeholder="Example: 'I want a room on the top floor, 1 queen sized bed, 2 guests, from the 25 nov - 6 des. I have a dog too, we want breakfast too'" rows="8" cols="45"></textarea>
+                        <textarea id="your-order-request" class="content-section__AI-search-input" placeholder="Example: 'I want a room on the top floor, 1 queen sized bed, 2 guests, from the 25 nov - 6 des. I have a dog too, we want breakfast too'" rows="5" cols="32"></textarea>
                         <label for="your-order-request" class="sr-only">Your room preferences:</label>
 
                         <button aria-label="Edit order request for the AI" class="content-section__AI-search-edit-btn">Edit</button>
@@ -66,19 +66,19 @@
                     <h2 class="content-section__gallery-title">Booking Details</h2>
 
                     <dl class="content-section__booking-order-details">
-                        <dt class="content-section__booking-term">Room:</dt>
+                        <dt class="content-section__booking-term">Chosen room:</dt>
                         <dd class="content-section__booking-value">Pinky</dd>
             
-                        <dt class="content-section__booking-term">Name:</dt>
+                        <dt class="content-section__booking-term">Full name:</dt>
                         <dd class="content-section__booking-value">Göran Ankerstrand</dd>
             
-                        <dt class="content-section__booking-term">Guests:</dt>
+                        <dt class="content-section__booking-term">Number of guests:</dt>
                         <dd class="content-section__booking-value">2 adults</dd>
             
-                        <dt class="content-section__booking-term">Date:</dt>
+                        <dt class="content-section__booking-term">Select date:</dt>
                         <dd class="content-section__booking-value">25. Nov - 6. Dec</dd>
             
-                        <dt class="content-section__booking-term">Animals:</dt>
+                        <dt class="content-section__booking-term">Any animals:</dt>
                         <dd class="content-section__booking-value">
                             <!-- Label for the 'Yes' option -->
                             <label for="animal-yes" class="content-section__booking-checkbox-label">
@@ -90,17 +90,17 @@
                             </label>
                         </dd>
             
-                        <dt class="content-section__booking-term">If yes specify what kind:</dt>
+                        <dt class="content-section__booking-term">If yes - specify what kind:</dt>
                         <dd class="content-section__booking-value">
                             <input type="text" placeholder="Dog" id="animal-type" class="content-section__booking-input">
                         </dd>
             
-                        <dt class="content-section__booking-term">Breakfast:</dt>
+                        <dt class="content-section__booking-term">Included breakfast:</dt>
                         <dd class="content-section__booking-value">Yes</dd>
                     </dl>
                     <!-- ADD CLASSES TO "dt" and "dd" and "dl" og alle buttons og labels OSV... -->
 
-                    <button aria-label="Edit or adjust details manually for your booking">Edit details</button>
+                    <button class="content-section__AI-search-edit-btn" aria-label="Edit or adjust details manually for your booking">Edit details</button>
                 </article>
             </section>
             
@@ -112,14 +112,16 @@
         <!-- will be a part of every page -->
         <footer class="footer-section">
             <nav class="footer-section__navigation-bottom">
-                <li class="footer-section__navigation-bottom-list-items">About us</li>
-                <li class="footer-section__navigation-bottom-list-items">Contact</li>
-                <li class="footer-section__navigation-bottom-list-items">Address</li>
-                <li class="footer-section__navigation-bottom-list-items">Feedback</li>
-                <li class="footer-section__navigation-bottom-list-items">Help</li>
-                <li class="footer-section__navigation-bottom-list-items">Socials</li>
+                <ul class="footer-section__navigation-bottom-list">
+                    <li class="footer-section__navigation-bottom-list-items">About us</li>
+                    <li class="footer-section__navigation-bottom-list-items">Contact</li>
+                    <li class="footer-section__navigation-bottom-list-items">Address</li>
+                    <li class="footer-section__navigation-bottom-list-items">Feedback</li>
+                    <li class="footer-section__navigation-bottom-list-items">Help</li>
+                    <li class="footer-section__navigation-bottom-list-items">Socials</li>
+                </ul>
             </nav>
-            <p class="footer-section__navigation-bottom-copyright">© Copyright by Helene Theodorsen AB</p>
+            <p class="footer-section__navigation-bottom-copyright">© Copyright by Bonz.ai - 2024</p>
         </footer>
     </div>
 </body>

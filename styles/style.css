@@ -6,6 +6,11 @@
     margin: 0;
     padding: 0;
 }
+/* HUSKELAPP TIL NESTE GANG: 
+SETT ALLE BILDER INNI EN CONTAINER FORDI DET BLIR SÅ MYE ENKLERE...
+FÅR BARE BRUKE DIV PÅ DEM DA, ELLER NOE. UNNGIKK DET NÅ PGA AT DET
+BLE MINDRE DIVS PÅ DET SETTET. MEN HADDE VÆRT BEDRE MED IMG CONTAINERS. */
+
 
 /*
 INNLEVERING: VÆR SIKKER PÅ AT ALLE SRC PÅ IMG ER RETTE, OM MAN ER I MASTER ELLER MAIN SÅ ER DE ULIKE,
@@ -42,14 +47,22 @@ OG ALT TEKST PÅ ALLE BILDER PÅ ALLE SIDER
     /* --headings-buttons: font-family: tomorrow */
 }
 
-.index-wrapper {
+.index-wrapper, .rooms-wrapper, .services-wrapper, .receipt-wrapper {
     /* background-color: EN FARGE HER PÅ DESKTOP FOR Å SKILLE MELLOM BODY OG WRAPPER (MAIN CONTENT) */
     min-height: 100vh;
     /* width: 100vw; */
     width: 100%;
+    max-width: 1400px;
     position: relative;
     overflow: hidden;
+    box-shadow: 0px 0px 10px grey;
 }
+
+body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+} 
 
 /* ---------------------------------------------------------------------------- HEADER SECTION -- ALL PAGES --------------------------------------------------------------------- */
 
@@ -159,13 +172,13 @@ OG ALT TEKST PÅ ALLE BILDER PÅ ALLE SIDER
     transform: translateX(100%);
     transition: transform .5s ease-in-out;
     background-color: rgb(10, 165, 204);
-    /* få den her fargen å matche enden av fargen på gradient i header */
+    box-shadow: 0px 1px 10px grey; 
+    /* X-AKSE (vannrett), Y-AKSE (loddrett), BLUR, evt nr. 4 = SPREAD */
 }
 
 .header-section__navigation-list {
     display: flex;
     flex-direction: column;
-    /* større skjerm, endre bare fra column til row i stedet for i media queries på desktop str*/
     align-items: flex-end;
 }
 
@@ -174,7 +187,6 @@ OG ALT TEKST PÅ ALLE BILDER PÅ ALLE SIDER
     justify-content: flex-start;
     list-style: none;
     padding: 1rem 2rem;
-    /* min-width: 100%; */
     width: auto;
 
 }
@@ -304,6 +316,11 @@ button {
     /* endre til felles button-BEM etterpå */
     background-color: white;
     opacity: .8;
+    cursor: pointer;
+}
+
+a {
+    cursor: pointer;  
 }
 
 .content-section__gal-con-service-btn:hover {
@@ -313,7 +330,7 @@ button {
 }
 /* ----------------------------------------------------------------------- REVIEWS SECTION -- PAGE 1 ----------------------------------------------------------------------------- */
 
-.intro__overview__quote {
+.intro-overview__quote {
     font-family: tomorrow;
     text-align: center;
     font-size: 1.5rem;
@@ -346,12 +363,7 @@ button {
     text-align: end;
 }
 
-.content-section__comment:nth-child(3) {
-    align-self: flex-end;
-}
-
-
-.content-section__comment:nth-child(5) {
+.content-section__comment:nth-child(odd) {
     align-self: flex-end;
 }
 
@@ -460,10 +472,16 @@ button {
     width: 12rem;
     position: absolute;
     /* transform: translate(-17.7rem, 8.5rem); */
-    bottom: 45%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -15%);
 }
+
+.rooms-wrapper .content-section__gal-con-service-btn {
+    top: 38%;
+    transform: translate(-50%, -15%);
+    position: absolute;
+} 
 
 .content-section__gallery-con {
     position: relative;
@@ -497,7 +515,7 @@ button {
     padding: 1rem 2rem;
     color: white;
     background: var(--gradient-blue);
-
+    box-shadow: 0px 3px 6px grey;
     position: absolute;
     transform: translateX(-50%);
 /* JUSTER BOOK KNAPPENE SÅNN AT DE ER ALIGNED LIKT */
@@ -541,6 +559,7 @@ button {
     font-size: 1rem;
     border-radius: .3rem;
     border: 1px solid rgb(199, 199, 199);
+    cursor: pointer;
 }
 
 .content-section__AI-search-edit-btn {
@@ -576,7 +595,7 @@ button {
 }
 
 .content-section__booking-result-image-container > .content-section__gal-con-service-btn {
-    top: 43%;
+    top: 42%;
     max-height: 3.5rem;
     transform: translate(-50%, -50%);
 }
@@ -652,12 +671,41 @@ button {
         margin-top: 4rem;
     }
 
+    /* reviews page 1 */
+
+    .content-section__reviews {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); 
+        grid-template-rows: auto;
+        text-align: center;
+    }
+
+    .content-section__quote-heading {
+        grid-column: span 3;
+    }
+
+    .content-section__comment {
+        grid-column: span 1;
+        width: auto;
+        min-height: 10rem;
+        position: relative;
+    }
+    
+    .content-section__user-name {
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
+    }
+
+    .content-section__more-com-btn {
+
+    }
+
     /* PAGE 2 & 3 --- SERIVCES/ROOMS */
 
     .content-section__gallery {
         display: grid;
-        /* grid-template-columns: repeat(2, 1fr); */
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Set min width for the columns */
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         grid-template-columns: repeat(3, minmax(300px, 1fr));
         grid-template-rows: auto;
         text-align: center;
@@ -681,10 +729,14 @@ button {
 
     .content-section__gal-con-service-btn {
         top: 34%;
-        /* left: 50%;
-        transform: translate(-50%, -35%); */
         max-height: 3.5rem;
     }
+
+    .rooms-wrapper .content-section__gal-con-service-btn {
+        top: 29%;
+        transform: translate(-50%, -15%);
+        position: absolute;
+    } 
 
 /* PAGE 4 - RECEIPT */
     .content-section__booking-result-image-container > .content-section__gal-con-service-btn {

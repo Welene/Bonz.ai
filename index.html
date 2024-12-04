@@ -22,12 +22,21 @@
             </label>
             <nav class="header-section__navigation">
                 <ul class="header-section__navigation-list">
-                    <li class="header-section__navigation-list-item">About Us</li>
+                    <li class="header-section__navigation-list-item">
+                        <a href="index.html">About Us</a>
+                    </li>
                     <li class="header-section__navigation-list-item">Information</li>
-                    <li class="header-section__navigation-list-item">Rooms</li>
-                    <li class="header-section__navigation-list-item">AI Booking</li>
+                    <li class="header-section__navigation-list-item">
+                        <a href="rooms.html">Rooms</a>
+                    </li>
+                    <li class="header-section__navigation-list-item">
+                        <a href="receipt.html">AI Booking</a>
+                        <!-- LEGG PADDING PÅ A TAGGEN DA SÅNN AT MAN KAN KLIKKE PÅ DEN, I STEDET FOR PÅ LIST ITEM ELLER HVOR DEN NÅ BEFINNER SEG ATM -->
+                    </li>
                     <li class="header-section__navigation-list-item">Manual Booking</li>
-                    <li class="header-section__navigation-list-item">Services</li>
+                    <li class="header-section__navigation-list-item">
+                        <a href="services.html">Services</a>
+                    </li>
                 </ul>
             </nav>
         </header>
@@ -49,7 +58,9 @@
                     <aside class="intro__booking-help"> 
                         <button aria-label="hint/tips button" class="intro__booking-help-btn">?</button>
                     </aside>
-                    <button aria-label="Book with AI" class="intro__booking-btn--bold">Book with AI</button>
+                    <a href="receipt.html">
+                        <button aria-label="Book with AI" class="intro__booking-btn--bold">Book with AI</button>
+                    </a>
                     <button aria-label="Book a room myself" class="intro__booking-btn">Book myself</button>
                 </article>
 
@@ -57,8 +68,12 @@
                 <article class="intro__overview">
                     <!-- background image her også -->
                     <figure class="intro__overview-btn-container">
-                        <button aria-label="Browse all our rooms" class="intro__overview-btn--padding">Rooms</button>
-                        <button aria-label="Browse all our services" class="intro__overview-btn">Services</button>
+                        <a href="rooms.html">
+                            <button aria-label="Browse all our rooms" class="intro__overview-btn--padding">Rooms</button>
+                        </a>
+                          <a href="services.html">
+                            <button aria-label="Browse all our services" class="intro__overview-btn">Services</button>
+                        </a>
                     </figure>
                     <div class="intro_overview-q-background">
                     <!-- her går det vel bra å ha en div right -->

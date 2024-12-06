@@ -44,7 +44,8 @@ OG BILDER DUKKER KANSKJE IKKE OPP... BARE ENDRE/TA BORT/LEGG TIL EN EKSTRA PAREN
 :root {
     --color-primary: #3d6d8d;
     --color-secondary: #363636;
-    --gradient-blue: linear-gradient(180deg, rgba(24,105,219,1) 0%, rgb(22, 167, 196) 100%);
+    --gradient-primary: radial-gradient(circle, rgba(224,26,79,1) 0%, rgb(252, 96, 69) 70%);
+    --gradient-secondary: linear-gradient(180deg, rgba(241,89,70,1) 0%, rgba(253,187,45,1) 100%);
 }
 
 .index-wrapper, .rooms-wrapper, .services-wrapper, .receipt-wrapper {
@@ -67,7 +68,7 @@ body {
 .header-section {
     position: relative;
     height: 7.5rem;
-    background: var(--gradient-blue);
+    background: var(--gradient-primary);
     display: flex;
     flex-direction: column;
 }
@@ -349,7 +350,7 @@ a {
     border-radius: .3rem;
     margin: 1rem;
     box-shadow: 0px 3px 8px grey;
-    background: var(--gradient-blue);
+    background: var(--gradient-secondary);
 }
 
 .content-section__user-name {
@@ -387,7 +388,7 @@ a {
     color: white;
     font-weight: 600;
     padding-top: 2rem;
-    background: var(--gradient-blue);
+    background: var(--gradient-primary);
     margin-top: 4rem;
 }
 
@@ -448,7 +449,7 @@ a {
 }
 
 .rooms-wrapper .content-section__gal-con-service-btn {
-    top: 38%;
+    top: 34%;
     transform: translate(-50%, -15%);
     position: absolute;
 } 
@@ -484,7 +485,7 @@ a {
     font-size: .9rem;
     padding: 1rem 2rem;
     color: white;
-    background: var(--gradient-blue);
+    background: var(--gradient-secondary);
     box-shadow: 0px 3px 6px grey;
 /* JUSTER BOOK KNAPPENE SÅNN AT DE ER ALIGNED LIKT */
 }
@@ -501,6 +502,7 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
 .content-section__AI-search-sub-title {
@@ -512,19 +514,21 @@ a {
 
 .content-section__AI-search-logo {
     max-width: 20%;
+    margin-top: 4rem;
 }
 
 .content-section__AI-search-input {
-    display: flex;
-    flex-direction: row;
+    /* display: flex;
+    flex-direction: row; */
     text-align: center;
-    align-items: center;
+    /* align-items: center; */
     padding: 1.5rem;
     font-size: 1rem;
     border-radius: .3rem;
     border: none;
     cursor: pointer;
     box-shadow: 0px 3px 10px grey;
+    width: 90%;
 }
 
 .content-section__AI-search-edit-btn {
@@ -532,12 +536,13 @@ a {
     font-weight: 600;
     max-width: 9rem;
     padding: 1rem 2rem;
-    margin-bottom: 2rem;
+    margin: 0rem 1.5rem 1rem 0rem;
     border-radius: .3rem;
     border-style: none;
     background-color: var(--color-secondary);
     color: white;
     box-shadow: 0px 3px 6px grey;
+    align-self: end;
 }
 
 .content-section__AI-search-output-container {
@@ -562,7 +567,7 @@ a {
 }
 
 .content-section__booking-result-image-container > .content-section__gal-con-service-btn {
-    top: 42%;
+    top: 42.2%;
     max-height: 3.5rem;
     transform: translate(-50%, -50%);
 }
@@ -576,6 +581,13 @@ a {
     font-size: 1.2rem;
 }
 
+.content-section__booking-order-details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 5.5rem;
+}
+
 .content-section__booking-term, .content-section__booking-value {
     font-family: roboto;
     font-weight: 600;
@@ -585,14 +597,34 @@ a {
     margin-bottom: .5rem;
 }
 
+.content-section__booking-term:nth-child(1) {
+    margin-top: 3rem;
+}
+
 .content-section__booking-value {
     margin-bottom: 3rem;
     font-weight: 300;
-
-    .content-section__booking-input {
-        padding: .5rem 1rem;
-    }
+    font-style: italic;
 }
+
+.content-section__booking-input {
+    padding: .5rem 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* -------------------------------------------------------------------------------- MEDIA QUERY SECTION ------------------------------------------------------------------------- */
 

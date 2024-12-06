@@ -9,14 +9,8 @@
 
 /* MANUAL BOOKING ER IKKE FUNKSJONELL --- BARE AI BOOKING ER FUNKSJONELL AV DE TO KNAPPENE */
 
-/* HUSKELAPP TIL NESTE GANG: 
-SETT ALLE BILDER INNI EN CONTAINER FORDI DET BLIR SÅ MYE ENKLERE...
-FÅR BARE BRUKE DIV PÅ DEM DA, ELLER NOE. UNNGIKK DET NÅ PGA AT DET
-BLE MINDRE DIVS PÅ DET SETTET. MEN HADDE VÆRT BEDRE MED IMG CONTAINERS.
-
-*PRØVER Å FIKSE IMG I CONTAINERS MED FLEX*
-EDIT; NEI OK DET VAR EN DÅRLIG IDE AT THIS POINT... */
-
+/* på den harde måten har jeg lært at: 1) flere containers er bra, finne ut hvor og hva jeg trenger containers til (grid, flex osv) før jeg lager dem. 
+2) burde hatt containers til images, mye lettere å få button til å være i midten av bildet f.eks. 3) god planlegging gjør at ting blir lettere å fikse senere! */
 
 /*
 INNLEVERING: VÆR SIKKER PÅ AT ALLE SRC PÅ IMG ER RETTE, OM MAN ER I MASTER ELLER MAIN SÅ ER DE ULIKE,
@@ -30,12 +24,6 @@ OG BILDER DUKKER KANSKJE IKKE OPP... BARE ENDRE/TA BORT/LEGG TIL EN EKSTRA PAREN
 
 - FORSØKE Å KOMBINERE ALLE BUTTONS PÅ ET SETT
 
-- FÅ MENYEN PÅ MOBIL TIL Å VISES OPPÅ/FRAMFOR ALT CONTENT OG IKKE BAK
-
-- FIKSE DESKTOP MEDIA QUERY PÅ ALLE SIDENE (ROOMS & SERVICES ER PRETTY MUCH FERDIG, MÅ JOBBE LITT PÅ REVIEWS PÅ INDEX, OG NESTEN ALT PÅ PAGE 4 (RECEIPT))
-
-- JUSTERE FARGER, VELGE PRIMARY OG SECONDARY FARGER PÅ SIDEN + GRADIENT
-
 - FLERE ARIA-LABELS??
 
 -ENDRE NAVN PÅ NOEN KLASSER, TIL MINDRE SPESIFIKT, MER ÅPENT OG GENERELT (knappene er et problem her f.eks...)
@@ -43,7 +31,7 @@ OG BILDER DUKKER KANSKJE IKKE OPP... BARE ENDRE/TA BORT/LEGG TIL EN EKSTRA PAREN
 
 :root {
     --color-primary: #3d6d8d;
-    --color-secondary: #4b4b4b;
+    --color-secondary: #352d2d;
     --gradient-primary: radial-gradient(circle, rgba(224,26,79,1) 0%, rgb(252, 96, 69) 70%);
     --gradient-secondary: linear-gradient(180deg, rgba(241, 90, 70, 0.747) 40%, rgba(255, 188, 43, 0.733) 90%);
     --gradient-secondary--stronger: linear-gradient(180deg, rgba(241, 90, 70, 0.904) 40%, rgb(255, 188, 43) 90%);
@@ -170,7 +158,6 @@ body {
     transition: transform .5s ease-in-out;
     background-color: rgb(10, 165, 204);
     z-index: 1;
-    /* X-AKSE (vannrett), Y-AKSE (loddrett), BLUR, evt nr. 4 = SPREAD */
 }
 
 .header-section__navigation-list-item a {
@@ -200,7 +187,6 @@ body {
 }
 
 .header-section__burger:checked ~ .header-section__navigation {
-    /* når burgermenyen er checked, så skal nav menyen komme inn på skjermen igjen */
     transform: translateX(0);
 }
 
@@ -216,7 +202,7 @@ body {
 
 /* ARTICLE NUMBER 1 */
 .intro__booking {
-    background-image: url('../assets/lobby.jpg');
+    background-image: url('../assets/lobby-hd.jpg');
     display: flex;
     justify-content: center;
     align-items: center;
@@ -261,7 +247,7 @@ body {
 
 /* ARTICLE NUMBER TWO */
 .intro__overview {
-    background-image: url('../assets/hotel.jpg');
+    background-image: url('../assets/hotel-hd.jpg');
     width: 100%;
     padding: 6rem 0rem;
     display: flex;
@@ -371,7 +357,7 @@ a {
     font-style: italic;
     font-family: roboto;
     font-size: .9rem;
-    background-color: var(--color-secondary);
+    background: var(--gradient-secondary--stronger);
     border-style: none;
     width: 8rem;
     padding: .7rem 1.2rem;
@@ -477,7 +463,6 @@ a {
     font-style: italic;
 }
 
-/* additional "BOOK" BUTTON ON "rooms.html" */
 .content-section__gal-con-book-btn {
     border-style: none;
     border-radius: .3rem;
@@ -490,7 +475,6 @@ a {
     box-shadow: 0px 3px 6px grey;
 /* JUSTER BOOK KNAPPENE SÅNN AT DE ER ALIGNED LIKT */
 }
-
 
 /* ------------------------------------------------------------------------------- RECEIPT SECTION -- PAGE 4------------------------------------------------------------------------ */
 .sr-only {
@@ -519,17 +503,19 @@ a {
 }
 
 .content-section__AI-search-input {
-    /* display: flex;
-    flex-direction: row; */
     text-align: center;
-    /* align-items: center; */
     padding: 1.5rem;
     font-size: 1rem;
     border-radius: .3rem;
     border: none;
     cursor: pointer;
-    box-shadow: 0px 3px 10px grey;
+    box-shadow: 0px 0px 10px rgb(204, 204, 204);
     width: 90%;
+}
+
+.content-section__AI-search-input:focus {
+    border: 2px solid rgba(224,26,79,1);
+    outline: none;
 }
 
 .content-section__AI-search-edit-btn {
@@ -537,13 +523,13 @@ a {
     font-weight: 600;
     max-width: 9rem;
     padding: 1rem 2rem;
-    margin: 0rem 1.5rem 1rem 0rem;
+    margin: 0rem 1.1rem 1rem 0rem;
     border-radius: .3rem;
     border-style: none;
-    background-color: var(--color-secondary);
     color: white;
     box-shadow: 0px 3px 6px grey;
     align-self: end;
+    background: var(--gradient-secondary--stronger);
 }
 
 .content-section__AI-search-output-container {
@@ -671,7 +657,7 @@ a {
     }
     
     .header-section__navigation-list-item:hover {
-        background-color: rgb(22, 167, 196);
+        background-color: rgb(252, 96, 69);
         color: white;
         border-radius: 0rem 0rem 1rem 1rem;
     }
@@ -682,7 +668,15 @@ a {
     }
 
     .content-section__login-status {
-        margin-top: 4rem;
+        margin: 4rem 2rem 0rem 0rem;
+    }
+
+    .intro__booking {
+        margin-top: 5rem;
+    }
+
+    .intro__overview {
+        margin-top: 6rem;
     }
 
     /* reviews page 1 */
@@ -696,11 +690,13 @@ a {
 
     .content-section__quote-heading {
         grid-column: span 3;
+        margin: 4rem 0rem 2rem 0rem;
     }
 
     .content-section__comment {
         grid-column: span 1;
         width: auto;
+        margin: 1rem;
         min-height: 10rem;
         position: relative;
     }
@@ -741,6 +737,7 @@ a {
     .content-section__gal-con-img {
         width: 100%;
         height: auto;
+        border-radius: .3rem;
     }
 
     .content-section__gal-con-service-btn {
@@ -758,25 +755,53 @@ a {
         /* FÅ DISSE TIL Å VÆRE ALIGNET */
     }
 
+    .footer-section {
+        margin-top: 12rem;
+    } 
+    
+
 /* PAGE 4 - RECEIPT */
-    .content-section__booking-result-image-container > .content-section__gal-con-service-btn {
-        top: 45%;
-        max-height: 3.5rem;
-        transform: translate(-50%, -50%);
-    }
 
     .content-section__booking-result {
         display: grid;
         grid-template-columns: repeat(3 ,1fr);
-        grid-template-rows: repeat(6, auto);
-        flex-direction: row;
+        grid-template-rows: auto;
         align-items: center;
         font-size: 1.2rem;
+        margin-top: 2rem;
+        padding-bottom: 4rem;
+        max-width: 70%;
+        border-radius: .3rem;
+        justify-self: center;
+        box-shadow: 0px 0px 10px rgb(204, 204, 204);
+    }
+    
+    .content-section__booking-result-image-container {
+        grid-column: 2 / 2; 
+        position: relative; 
+    }
+    
+    .content-section__booking-result-image-container > .content-section__gal-con-service-btn {
+        position: absolute;
+        top: 62%; 
+        left: 50%; 
     }
 
+    .content-section__booking-order-details {
+        grid-column: 2 / 2;
+        font-size: 1.2rem;
+    }
+    
+    .content-section__AI-search-input {
+        padding: 2rem 20rem;
+        min-width: 100%;
+    }
+    
     .content-section__AI-search-edit-btn {
-        grid-column: 2 / 3;
+        grid-column: 3 / 3;
         grid-row: 4 / 5 ;
+        justify-self: flex-start;
+        margin-left: 8rem;
         box-shadow: 0px 3px 6px grey;
     } 
 }

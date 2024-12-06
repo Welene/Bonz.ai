@@ -7,27 +7,9 @@
     padding: 0;
 }
 
-/* MANUAL BOOKING ER IKKE FUNKSJONELL --- BARE AI BOOKING ER FUNKSJONELL AV DE TO KNAPPENE */
+/* Disse knappene i NAV fungerer: ABOUT US, ROOMS, AI BOOKING & SERVICES (4 sider) */
 
-/* på den harde måten har jeg lært at: 1) flere containers er bra, finne ut hvor og hva jeg trenger containers til (grid, flex osv) før jeg lager dem. 
-2) burde hatt containers til images, mye lettere å få button til å være i midten av bildet f.eks. 3) god planlegging gjør at ting blir lettere å fikse senere! */
-
-/*
-INNLEVERING: VÆR SIKKER PÅ AT ALLE SRC PÅ IMG ER RETTE, OM MAN ER I MASTER ELLER MAIN SÅ ER DE ULIKE,
-OG BILDER DUKKER KANSKJE IKKE OPP... BARE ENDRE/TA BORT/LEGG TIL EN EKSTRA PARENT FOLDER ./navn -- ../navn/navn
-
-- RAD 719: FÅ BOOK KNAPPENE TIL Å BLI ALIGNET (LODDRETT) UTEN Å BRUKE POSITION ABSOLUTE
-
-- GJØR AT a-tagger HOVRES OVER SOM BOKSEN RUNDT, ALTSÅ IKKE BARE SKRIFTEN SKAL KUNNE HOVRES OVER, ELLER EVT LEGG TIL PADDING PÅ SELVE A TAGGENE, det er vel bedre
-
-- LEGGE TIL "ALT" BESKRIVNINGER PÅ ALLE BILDER
-
-- FORSØKE Å KOMBINERE ALLE BUTTONS PÅ ET SETT
-
-- FLERE ARIA-LABELS??
-
--ENDRE NAVN PÅ NOEN KLASSER, TIL MINDRE SPESIFIKT, MER ÅPENT OG GENERELT (knappene er et problem her f.eks...)
-*/
+/* på den harde måten har jeg lært at: 1) flere containers er bra + å finne ut hvor/hva jeg trenger containers til (grid, flex, osv) før jeg lager dem. 2) burde hatt containers til <img>, mye lettere å få <button> til å være i midten av bildet da. 3) god planlegging gjør at ting blir lettere å fikse senere! noe som ble vanskelig på side 4 nå... også planlegge navn/bokser bedre sånn at det blir lettere å skrive rett BEM fra begynnelsen. */
 
 :root {
     --color-primary: #3d6d8d;
@@ -38,9 +20,9 @@ OG BILDER DUKKER KANSKJE IKKE OPP... BARE ENDRE/TA BORT/LEGG TIL EN EKSTRA PAREN
 }
 
 .index-wrapper, .rooms-wrapper, .services-wrapper, .receipt-wrapper {
-    min-height: 100vh;
     width: 100%;
     max-width: 1400px;
+    min-height: 100vh;
     position: relative;
     overflow: hidden;
     box-shadow: 0px 0px 10px grey;
@@ -50,16 +32,16 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-} 
+}
 
 /* ---------------------------------------------------------------------------- HEADER SECTION -- ALL PAGES --------------------------------------------------------------------- */
-
 .header-section {
-    position: relative;
     height: 7.5rem;
-    background: var(--gradient-primary);
     display: flex;
     flex-direction: column;
+    position: relative;
+    background: var(--gradient-primary);
+    box-shadow: 0px 2px 5px grey;
 }
 
 .header-section__title, .header-section__sub-title {
@@ -79,26 +61,22 @@ body {
 }
 
 .header-section__image {
-    max-width: 20%;
-    bottom: 3rem;
     position: absolute;
+    max-width: 20%;
     transform: translate(-50%, -50%);
     top: 50%;
+    bottom: 3rem;
     left: 12%;
 }
-
-
 /* ----------------------------------------------------------------------- HAMBURGER SECTION -- ALL PAGES ------------------------------------------------------------------------ */
-
-/* HAMBURGER ICON STYLING/POSITION SECTION */
 .header-section__burger {
     display: none;
 }
 
 .header-section__burger-btn {
+    position: absolute;
     width: 1.5rem;
     aspect-ratio: 1;
-    position: absolute;
     top: 1rem;
     right: 1rem;
     display: flex;
@@ -107,16 +85,14 @@ body {
     justify-content: center;
 }
 
-
-/* HAMBURGER CHECKED/ROTATION ANIMATION SECTION */
 .header-section__burger-btn > .header-section__burger-icon,
 .header-section__burger-btn > .header-section__burger-icon::before,
 .header-section__burger-btn > .header-section__burger-icon::after {
+    position: absolute;
     width: 100%;
     height: 3px;
     border-radius: 1rem;
     background-color: white;
-    position: absolute;
     transition: all .3s ease-in-out;
 }
 
@@ -144,25 +120,19 @@ body {
     top: 0;
 }
 
-/* NAVIGATION MENU STYLING/ANIMATION SECTION */
 .header-section__navigation {
     margin-inline: auto;
     width: 100%;
     height: 100vh;
     padding-bottom: 2rem;
-    color: white;
     font-size: 1.5rem;
     font-weight: 600;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     transform: translateX(100%);
     transition: transform .5s ease-in-out;
-    background-color: rgb(10, 165, 204);
-    z-index: 1;
-}
-
-.header-section__navigation-list-item a {
     color: white;
-    text-decoration: none;
+    background-color: rgb(252, 96, 69);
+    z-index: 1;
 }
 
 .header-section__navigation-list {
@@ -174,25 +144,28 @@ body {
 .header-section__navigation-list-item {
     display: flex;
     justify-content: flex-start;
-    list-style: none;
-    padding: 1rem 2rem;
     width: auto;
+    padding: 1rem 2rem;
+    list-style: none;
+}
+
+.header-section__navigation-list-item a {
+    color: white;
+    text-decoration: none;
 }
 
 .header-section__navigation-list-item:active,
 .header-section__navigation-list-item:hover {
-    background-color: #1090b8;
-    cursor: pointer;
+    background: var(--gradient-primary);
     border-radius: .3rem;
+    cursor: pointer;
 }
 
 .header-section__burger:checked ~ .header-section__navigation {
     transform: translateX(0);
 }
 
-
-/* --------------------------------------------------------------------------- MAIN SECTION -- PAGE 1 ---------------------------------------------------------------------------- */
-
+/* --------------------------------------------------------------------------- MAIN SECTION -- PAGE 1 (INDEX) ---------------------------------------------------------------------------- */
 .content-section__login-status {
     display: flex;
     justify-content: flex-end;
@@ -200,7 +173,7 @@ body {
     font-family: roboto;
 }
 
-/* ARTICLE NUMBER 1 */
+/* BOOK MANUALLY & AI SECTION */
 .intro__booking {
     background-image: url('../assets/lobby-hd.jpg');
     display: flex;
@@ -216,24 +189,23 @@ body {
 }
 
 .intro__booking-help-btn {
-    color: white;
-    background-color: white;
+    position: absolute;
     padding: .7rem 1.1rem;
     border-style: none;
     border-radius: 999rem;
     font-weight: 1000;
     font-size: 1rem;
     color: rgb(70, 70, 70);
-    position: absolute;
+    background-color: white;
     top: 1rem;
     right: 1rem;
 }
 
 .intro__booking-btn, .intro__booking-btn--bold {
+    width: 20.7rem;
     padding: 1.5rem 5.5rem;
     font-family: tomorrow;
     font-size: 1.5rem;
-    width: 20.7rem;
     border-style: none;
     border-radius: .3rem;
 }
@@ -244,12 +216,11 @@ body {
     margin-bottom: 2rem;
 }
 
-
-/* ARTICLE NUMBER TWO */
+/* SEE ROOMS & SERVICES SECTION */
 .intro__overview {
     background-image: url('../assets/hotel-hd.jpg');
+    position: relative;
     width: 100%;
-    padding: 6rem 0rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -257,15 +228,15 @@ body {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+    padding: 6rem 0rem;
     margin-top: 2.8rem;
     margin-bottom: 6rem;
-    position: relative;
 }
 
 .intro__overview-btn, .intro__overview-btn--padding {
+    width: 8rem;
     padding: .5rem .5rem;
     border-style: none;
-    width: 8rem;
     border-radius: .3rem;
     font-weight: 600;
     font-size: 1.5rem;
@@ -274,8 +245,8 @@ body {
 }
 
 .intro__overview-btn-container {
-    margin-bottom: 2rem;
     width: 20.1rem;
+    margin-bottom: 2rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -296,23 +267,7 @@ body {
     font-style: italic;
 }
 
-button {
-    /* endre til felles button-BEM etterpå */
-    background-color: white;
-    opacity: .8;
-    cursor: pointer;
-}
-
-a {
-    cursor: pointer;  
-}
-
-.content-section__gal-con-service-btn:hover {
-    opacity: 1;
-/* ENDRE NAVN, DEN HETER SERVICE-BTN PÅ BÅDE SERVICE & ROOMS... */
-}
-/* ----------------------------------------------------------------------- REVIEWS SECTION -- PAGE 1 ----------------------------------------------------------------------------- */
-
+/* ----------------------------------------------------------------------- REVIEWS SECTION -- PAGE 1 (INDEX) ----------------------------------------------------------------------------- */
 .intro-overview__quote {
     font-family: tomorrow;
     text-align: center;
@@ -329,18 +284,19 @@ a {
 .content-section__comment {
     width: clamp(12rem, 50%, 20rem);
     padding: 1.2rem;
-    color: white;
+    margin: 1rem;
+    border-radius: .3rem;
     font-family: roboto;
     font-style: italic;
     font-weight: 400;
     font-size: 1rem;
-    border-radius: .3rem;
-    margin: 1rem;
+    color: white;
     box-shadow: 0px 3px 8px grey;
     background: var(--gradient-secondary);
 }
 
 .content-section__user-name {
+    padding-top: 1rem;
     font-family: roboto;
     font-weight: 200;
     text-align: end;
@@ -351,39 +307,39 @@ a {
 }
 
 .content-section__more-com-btn {
+    width: 8rem;
+    padding: .7rem 1.2rem;
+    margin: 3rem 0rem 6rem 0rem;
     border-radius: .3rem;
-    color: white;
+    border-style: none;
     font-weight: 600;
     font-style: italic;
     font-family: roboto;
     font-size: .9rem;
-    background: var(--gradient-secondary--stronger);
-    border-style: none;
-    width: 8rem;
-    padding: .7rem 1.2rem;
     align-self: center;
-    margin: 3rem 0rem 6rem 0rem;
+    color: white;
     box-shadow: 0px 3px 5px grey;
+    background: var(--gradient-secondary);
+    /* ikke helt fornøyd med fargen her altså... */
 }
 
 /* ----------------------------------------------------------------------- FOOTER SECTION -- ALL PAGES -------------------------------------------------------------------------- */
-
 .footer-section {
     width: 100%;
     height: auto;
-    font-family: roboto;
-    color: white;
-    font-weight: 600;
     padding-top: 2rem;
-    background: var(--gradient-primary);
     margin-top: 4rem;
+    font-family: roboto;
+    font-weight: 600;
+    color: white;
+    background: var(--gradient-primary);
 }
 
 .footer-section__navigation-bottom-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
-    gap: 2rem; 
+    gap: 2rem;
     list-style: none;
 }
 
@@ -393,21 +349,20 @@ a {
 }
 
 .footer-section__navigation-bottom-copyright {
-    font-weight: 100;
-    text-align: center;
+    padding-top: 3rem;
     padding-bottom: 1rem;
     font-style: italic;
-    padding-top: 3rem;
     font-size: .9rem;
+    font-weight: 100;
+    text-align: center;
 }
 
-/* ------------------------------------------------------------------------ SERVICES/ROOMS PAGE -- PAGE 2 & 3 -------------------------------------------------------------------- */
-
+/* ---------------------------------------------------------------------- PAGE 2 & 3 - GRID SECTION (ROOMS & SERVICES) ---------------------------------------------------------------------- */
 .content-section__gallery-title {
+    margin: 2rem;
     font-family: tomorrow;
     font-weight: 600;
     font-size: 1.5rem;
-    margin: 2rem;
     text-align: center;
 }
 
@@ -419,19 +374,19 @@ a {
 }
 
 .content-section__gal-con-service-btn {
-    border-style: none;
-    background-color: white;
-    opacity: .7;
-    color: black;
+    position: absolute;
+    width: 12rem;
     padding: 1.2rem 2.5rem;
+    border-style: none;
     border-radius: .3rem;
     font-family: tomorrow;
     font-weight: 600;
     font-size: 1rem;
-    width: 12rem;
-    position: absolute;
     top: 40%;
     left: 50%;
+    opacity: .7;
+    color: black;
+    background-color: white;
     transform: translate(-50%, -15%);
 }
 
@@ -439,7 +394,7 @@ a {
     top: 34%;
     transform: translate(-50%, -15%);
     position: absolute;
-} 
+}
 
 .content-section__gallery-con {
     position: relative;
@@ -447,8 +402,8 @@ a {
 
 .content-section__gal-con-img {
     position: relative;
-    margin-top: 5rem;
     width: 100%;
+    margin-top: 5rem;
     box-shadow: 0px 3px 5px grey;
 }
 
@@ -464,75 +419,90 @@ a {
 }
 
 .content-section__gal-con-book-btn {
+    padding: 1rem 2rem;
     border-style: none;
     border-radius: .3rem;
     font-weight: 600;
     font-family: roboto;
     font-size: .9rem;
-    padding: 1rem 2rem;
     color: white;
     background: var(--gradient-secondary--stronger);
     box-shadow: 0px 3px 6px grey;
-/* JUSTER BOOK KNAPPENE SÅNN AT DE ER ALIGNED LIKT */
 }
 
-/* ------------------------------------------------------------------------------- RECEIPT SECTION -- PAGE 4------------------------------------------------------------------------ */
+/* --------------------------------------------------------------------------- BOOKING SECTION - PAGE 4 (RECEIPT/LAST PAGE)------------------------------------------------------------------- */
+
+/* I AM AWARE THIS PAGE LOOKS... NOT... VERY GREAT :---)))) */
 .sr-only {
     visibility: hidden;
+    position: absolute;
 }
 
-/* SEARCH WITH AI SECTION / 1 */
-
-.content-section__AI-search, .content-section__AI-search-content  {
+/* SEARCH WITH AI SECTION */
+.content-section__ai-search, .content-section__ai-search-content  {
     display: flex;
     flex-direction: column;
     align-items: center;
 
 }
 
-.content-section__AI-search-sub-title {
+.content-section__ai-search-sub-title {
     font-family: tomorrow;
     font-weight: 600;
     font-size: 1.2rem;
     margin: 2rem 0rem;
 }
 
-.content-section__AI-search-logo {
+.content-section__ai-search-logo {
     max-width: 20%;
     margin-top: 4rem;
 }
 
-.content-section__AI-search-input {
-    text-align: center;
+.content-section__ai-search-input {
+    width: 90%;
     padding: 1.5rem;
     font-size: 1rem;
-    border-radius: .3rem;
+    text-align: center;
     border: none;
+    border-radius: .3rem;
     cursor: pointer;
     box-shadow: 0px 0px 10px rgb(204, 204, 204);
-    width: 90%;
 }
 
-.content-section__AI-search-input:focus {
+.content-section__ai-search-input:focus {
     border: 2px solid rgba(224,26,79,1);
     outline: none;
 }
 
-.content-section__AI-search-edit-btn {
-    font-family: roboto;
-    font-weight: 600;
+.content-section__ai-search-btn {
     max-width: 9rem;
     padding: 1rem 2rem;
     margin: 0rem 1.1rem 1rem 0rem;
+    font-family: roboto;
+    font-weight: 600;
     border-radius: .3rem;
     border-style: none;
+    align-self: end;
     color: white;
     box-shadow: 0px 3px 6px grey;
+    background: rgb(65, 59, 59);
+}
+
+.content-section__ai-search-btn--confirm {
+    max-width: 9rem;
+    padding: 1rem 2rem;
+    margin: 0rem 1.1rem 1rem 0rem;
+    font-family: roboto;
+    font-weight: 600;
+    border-radius: .3rem;
+    border-style: none;
     align-self: end;
+    color: white;
+    box-shadow: 0px 3px 6px grey;
     background: var(--gradient-secondary--stronger);
 }
 
-.content-section__AI-search-output-container {
+.content-section__ai-search-output-container {
     max-width: 22rem;
     padding: 1rem 1.5rem;
     border-radius: 0.3rem;
@@ -540,12 +510,12 @@ a {
     opacity: .7;
 }
 
-.content-section__AI-search-output-container-result {
+.content-section__ai-search-output-container-result {
     text-align: center;
-    line-height: 1.5;
     font-size: 1.8rem;
     font-family: roboto;
     font-style: italic;
+    line-height: 1.5;
 }
 .content-section__booking-result-image-container {
     display: flex;
@@ -554,12 +524,12 @@ a {
 }
 
 .content-section__booking-result-image-container > .content-section__gal-con-service-btn {
-    top: 42.2%;
+    top: 38.5%;
     max-height: 3.5rem;
     transform: translate(-50%, -50%);
 }
 
-/* BOOKING DETAILS SECTION / 2 */
+/* AI SEARCH RESULTS SECTION */
 
 .content-section__booking-result {
     display: flex;
@@ -596,59 +566,42 @@ a {
 
 .content-section__booking-input {
     padding: .5rem 1rem;
+    border-radius: .3rem;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* -------------------------------------------------------------------------------- MEDIA QUERY SECTION ------------------------------------------------------------------------- */
-
 @media screen and (min-width: 999px) {
-
-    /* MEDIA QUERY --- NAV MENY + BURGER ICON STYLING */
     .header-section__burger-btn {
         display: none;
     }
-
+    
     .header-section__image {
         max-width: 10%;
         transform: translate(-50%, -50%);
     }
-
+    
     .header-section__navigation {
-        transform: translateX(0);
-        display: flex;
         width: 100%;
         height: auto;
         padding-bottom: 0;
+        display: flex;
+        transform: translateX(0);
         background-color: rgb(255, 255, 255);
         color: rgb(19, 19, 19);
     }
-
+    
     .header-section__navigation-list {
+        width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        width: 100%;
     }
-
+    
     .header-section__navigation-list-item {
-        font-size: 1rem;
-        border-style: none;
         padding: 1rem 2rem;
+        font-size: 1rem;
         text-align: center;
+        border-style: none;
     }
     
     .header-section__navigation-list-item a {
@@ -656,34 +609,34 @@ a {
         text-decoration: none;
     }
     
+    .header-section__navigation-list-item:hover a {
+        color: white;
+        transition: all 0.3s ease-in-out;
+    }
+    
     .header-section__navigation-list-item:hover {
+        border-radius: 0rem 0rem 1rem 1rem;
         background-color: rgb(252, 96, 69);
         color: white;
-        border-radius: 0rem 0rem 1rem 1rem;
     }
-
-
-    .header-section__navigation-list-item a:hover {
-        color: white;
-    }
-
+    
     .content-section__login-status {
         margin: 4rem 2rem 0rem 0rem;
     }
-
+    
     .intro__booking {
         margin-top: 5rem;
     }
-
+    
     .intro__overview {
         margin-top: 6rem;
     }
 
-    /* reviews page 1 */
+    /* REVIEWS SECTION - INDEX PAGE (PAGE 1) */
 
     .content-section__reviews {
         display: grid;
-        grid-template-columns: repeat(3, 1fr); 
+        grid-template-columns: repeat(3, 1fr);
         grid-template-rows: auto;
         text-align: center;
     }
@@ -694,13 +647,13 @@ a {
     }
 
     .content-section__comment {
+        position: relative;
         grid-column: span 1;
         width: auto;
         margin: 1rem;
         min-height: 10rem;
-        position: relative;
     }
-    
+
     .content-section__user-name {
         position: absolute;
         bottom: 1rem;
@@ -712,11 +665,10 @@ a {
         justify-self: center;
     }
 
-    /* PAGE 2 & 3 --- SERIVCES/ROOMS */
+    /* GALLERY GRID SECTION - SERIVCES & ROOMS PAGE (PAGE 2 & 3) */
 
     .content-section__gallery {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         grid-template-columns: repeat(3, minmax(300px, 1fr));
         grid-template-rows: auto;
         text-align: center;
@@ -725,8 +677,8 @@ a {
     }
 
     .content-section__gal-con-description {
-        padding: 1rem;
         width: 100%;
+        padding: 1rem;
         margin: 1rem 0rem;
     }
 
@@ -746,62 +698,90 @@ a {
     }
 
     .rooms-wrapper .content-section__gal-con-service-btn {
-        top: 29%;
-        transform: translate(-50%, -15%);
         position: absolute;
-    } 
-    
+        top: 33%;
+        transform: translate(-50%, -15%);
+    }
+
     .content-section__gal-con-book-btn {
-        /* FÅ DISSE TIL Å VÆRE ALIGNET */
+        position: absolute;
+        bottom: -2.5rem;
+        left: 37%;
     }
 
     .footer-section {
         margin-top: 12rem;
-    } 
-    
+    }
 
-/* PAGE 4 - RECEIPT */
+/* BOOKING/RECEIPT PAGE - RECEIPT (PAGE 4) */
 
     .content-section__booking-result {
-        display: grid;
-        grid-template-columns: repeat(3 ,1fr);
-        grid-template-rows: auto;
-        align-items: center;
-        font-size: 1.2rem;
+        max-width: 60rem;
         margin-top: 2rem;
         padding-bottom: 4rem;
-        max-width: 70%;
-        border-radius: .3rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        align-items: center;
         justify-self: center;
+        font-size: 1.2rem;
+        border-radius: .3rem;
         box-shadow: 0px 0px 10px rgb(204, 204, 204);
     }
-    
+
     .content-section__booking-result-image-container {
-        grid-column: 2 / 2; 
-        position: relative; 
+        position: relative;
+        grid-column: 2 / 2;
+        width: 30rem;
     }
-    
+
     .content-section__booking-result-image-container > .content-section__gal-con-service-btn {
         position: absolute;
-        top: 62%; 
-        left: 50%; 
+        top: 62%;
+        left: 50%;
     }
 
     .content-section__booking-order-details {
         grid-column: 2 / 2;
         font-size: 1.2rem;
     }
-    
-    .content-section__AI-search-input {
-        padding: 2rem 20rem;
+
+    .content-section__ai-search-input {
+        width: 60rem;
         min-width: 100%;
+        padding: 4rem 2rem;
+    }
+
+    .content-section__ai-search-btn {
+        grid-column: 1 / 2;
+        grid-row: 4 / 5;
+        justify-self: flex-end;
+        margin-left: 1rem;
+        box-shadow: 0px 3px 6px grey;
+    }
+
+    .content-section__ai-search-btn--confirm {
+        grid-column: 3 / 3;
+        grid-row: 4 / 5;
+        justify-self: flex-start;
+    }
+
+    /* OTHER GENERAL STYLINGS GOD I AM SO TIRED */
+
+    button {
+        background-color: white;
+        opacity: .8;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: white;
+        opacity: 1;
+        cursor: pointer;
+        transition: all 0.1s ease-in-out;
     }
     
-    .content-section__AI-search-edit-btn {
-        grid-column: 3 / 3;
-        grid-row: 4 / 5 ;
-        justify-self: flex-start;
-        margin-left: 8rem;
-        box-shadow: 0px 3px 6px grey;
-    } 
+    a {
+        cursor: pointer;
+    }
 }

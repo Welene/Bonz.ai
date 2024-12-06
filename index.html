@@ -7,13 +7,12 @@
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 
-
 <body>
     <div class="index-wrapper">
 
         <!-- will be a part of every page -->
         <header class="header-section">
-            <img src="./assets/Bot1-half.png" alt="" class="header-section__image">
+            <img src="./assets/Bot1-half.png" alt="Bonz.ai logo" class="header-section__image">
             <h1 class="header-section__title">Bonz.ai</h1>
             <h2 class="header-section__sub-title">Hotel</h2>
             <input type="checkbox" class="header-section__burger" id="header-section__burger">
@@ -25,7 +24,9 @@
                     <li class="header-section__navigation-list-item">
                         <a href="index.html">About Us</a>
                     </li>
-                    <li class="header-section__navigation-list-item">Information</li>
+                    <li class="header-section__navigation-list-item">
+                        <a href="#">Information</a>
+                    </li>
                     <li class="header-section__navigation-list-item">
                         <a href="rooms.html">Rooms</a>
                     </li>
@@ -33,7 +34,9 @@
                         <a href="receipt.html">AI Booking</a>
                         <!-- LEGG PADDING PÅ A TAGGEN DA SÅNN AT MAN KAN KLIKKE PÅ DEN, I STEDET FOR PÅ LIST ITEM ELLER HVOR DEN NÅ BEFINNER SEG ATM -->
                     </li>
-                    <li class="header-section__navigation-list-item">Manual Booking</li>
+                    <li class="header-section__navigation-list-item">
+                        <a href="#">Manual Booking</a>
+                    </li>
                     <li class="header-section__navigation-list-item">
                         <a href="services.html">Services</a>
                     </li>
@@ -41,45 +44,33 @@
             </nav>
         </header>
 
-
-
-
         <main class="content-section">
             <p class="content-section__login-status">Logged in</p>
             <!-- Logged in will be a part of every page -->
-
-            <!-- will not be a part of every page -->
             
-            <!-- PICTURE-BOOKING-SECTION -->
+            <!-- AI & MANUAL BOOKING SECTION -->
             <section class="content-section__intro">
-                
                 <article class="intro__booking">
-                    <!-- legg inn bilde i hver artikkel som background-image -->
                     <aside class="intro__booking-help"> 
                         <button aria-label="hint/tips button" class="intro__booking-help-btn">?</button>
                     </aside>
                         <button aria-label="Book with AI" class="intro__booking-btn--bold">Book with AI</button>
                     <button aria-label="Book a room myself" class="intro__booking-btn">Book myself</button>
                 </article>
-
-
+                
+                <!-- ROOMS & SERVICES BUTTONS SECTION -->
                 <article class="intro__overview">
-                    <!-- background image her også -->
                     <figure class="intro__overview-btn-container">
                             <button aria-label="Browse all our rooms" class="intro__overview-btn--padding">Rooms</button>
                             <button aria-label="Browse all our services" class="intro__overview-btn">Services</button>
                     </figure>
                     <div class="intro_overview-q-background">
-                    <!-- her går det vel bra å ha en div right -->
                         <blockquote class="intro__overview-quote">
                             <p class="intro__overview-quote-content">Hotels made easy with Bonz <br> - a stay tailored just for you</p>
                         </blockquote>
                     </div>
                 </article>
-
             </section>
-
-
             <!-- COMMENTS/REVIEWS SECTION -->
 
             <section class="content-section__reviews">
@@ -126,9 +117,6 @@
                 <button aria-label="Show more reviews and comments" class="content-section__more-com-btn">Show more...</button>
             </section>
         </main>
-
-
-
 
         <!-- will be a part of every page -->
         <footer class="footer-section">

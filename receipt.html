@@ -7,13 +7,12 @@
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 
-
 <body>
     <div class="receipt-wrapper">
 
         <!-- will be a part of every page -->
         <header class="header-section">
-            <img src="./assets/Bot1-half.png" alt="" class="header-section__image">
+            <img src="./assets/Bot1-half.png" alt="Bonz.ai logo" class="header-section__image">
             <h1 class="header-section__title">Bonz.ai</h1>
             <h2 class="header-section__sub-title">Hotel</h2>
             <input type="checkbox" class="header-section__burger" id="header-section__burger">
@@ -31,7 +30,6 @@
                     </li>
                     <li class="header-section__navigation-list-item">
                         <a href="receipt.html">AI Booking</a>
-                        <!-- LEGG PADDING PÅ A TAGGEN DA SÅNN AT MAN KAN KLIKKE PÅ DEN, I STEDET FOR PÅ LIST ITEM ELLER HVOR DEN NÅ BEFINNER SEG ATM -->
                     </li>
                     <li class="header-section__navigation-list-item">Manual Booking</li>
                     <li class="header-section__navigation-list-item">
@@ -41,34 +39,33 @@
             </nav>
         </header>
 
-
-
-
         <main class="content-section">
             <p class="content-section__login-status">Logged in</p>
             <!-- Logged in/logged out will be a part of every page -->
 
-            <section class="content-section__AI-search">
-                <h2 class="content-section__gallery-title">Book with Bonz</h2>
-                    <form class="content-section__AI-search-content">
-                        <h3 class="content-section__AI-search-sub-title">Room preferences:</h3>
 
-                        <textarea id="your-order-request" class="content-section__AI-search-input" placeholder="Example: 'I want a room on the top floor, 1 queen sized bed, 2 guests, from the 25 nov - 6 des. I have a dog too, we want breakfast too'" rows="5" cols="32"></textarea>
+            <!-- write in AI promps section -->
+            <section class="content-section__ai-search">
+                <h2 class="content-section__gallery-title">Book with Bonz</h2>
+                    <form class="content-section__ai-search-content">
+                        <h3 class="content-section__ai-search-sub-title">Room preferences:</h3>
+
+                        <textarea id="your-order-request" class="content-section__ai-search-input" placeholder="Example: 'I want a room on the top floor, 1 queen sized bed, 2 guests, from the 25 nov - 6 des. I have a dog too, we want breakfast too -- I am aware that this last pahe looks like crap'"></textarea>
                         <label for="your-order-request" class="sr-only">Your room preferences:</label>
 
-                        <button aria-label="Edit order request for the AI" class="content-section__AI-search-edit-btn">Edit</button>
-                        <img src="./assets/bot2-half.png" alt="" class="content-section__AI-search-logo">
+                        <img src="./assets/bot2-half.png" alt="Bonz.ai logo" class="content-section__ai-search-logo">
 
-                        <div class="content-section__AI-search-output-container">
-                            <p class="content-section__AI-search-output-container-result">Hmm.. How about this?</p>
+                        <div class="content-section__ai-search-output-container">
+                            <p class="content-section__ai-search-output-container-result">Hmm.. How about this?</p>
                         </div>
                     </form>
             </section>
 
+            <!-- ai promps results seciton -->
             <section class="content-section__booking">
                 <article class="content-section__booking-result">
                     <div class="content-section__booking-result-image-container">
-                        <img src="./assets/pinky.jpg" alt="" class="content-section__gal-con-img">
+                        <img src="./assets/pinky.jpg" alt="Picture of hotel room pinky" class="content-section__gal-con-img">
                         <button aria-label="Read more about room details" class="content-section__gal-con-service-btn">Pinky</button>
                     </div>
                     <h2 class="content-section__gallery-title">Booking Details</h2>
@@ -96,22 +93,27 @@
                             </label>
                         </dd>
             
-                        <dt class="content-section__booking-term">If yes - specify what kind:</dt>
+                        <dt class="content-section__booking-term">Specify what kind:</dt>
                         <dd class="content-section__booking-value">
-                            <input type="text" placeholder="Dog" id="animal-type" class="content-section__booking-input">
+                            <select class="content-section__booking-input" id="animal-type" aria-label="Choose an animal">
+                                <option value="" disabled selected>Choose an option</option>
+                                <option value="dog" class="content-section__booking-input-select">Dog</option>
+                                <option value="cat" class="content-section__booking-input-select">Cat</option>
+                                <option value="bunny" class="content-section__booking-input-select">Bunny</option>
+                                <option value="hamster" class="content-section__booking-input-select">Hamster</option>
+                                <option value="other" class="content-section__booking-input-select">Other</option>
+                            </select>
                         </dd>
             
                         <dt class="content-section__booking-term">Included breakfast:</dt>
                         <dd class="content-section__booking-value">Yes</dd>
                     </dl>
-                    <button class="content-section__AI-search-edit-btn" aria-label="Edit or adjust details manually for your booking">Edit</button>
+                    <button class="content-section__ai-search-btn--confirm" aria-label="Confirm your AI booking details">Confirm</button>
+                    <button class="content-section__ai-search-btn" aria-label="Edit or adjust details manually for your booking">Edit search</button>
                 </article>
             </section>
             
         </main>
-
-
-
 
         <!-- will be a part of every page -->
         <footer class="footer-section">
